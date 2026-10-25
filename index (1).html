@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fresh Fruit, Broken Bodies: a field notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Caveat:wght@600;700&amp;display=swap">
+<style>
+body{margin:0;background:#E9DFCB;color:#24211C;font-family:'Source Serif 4',Georgia,'Times New Roman',serif;font-size:18px;line-height:1.55}
+html{scroll-behavior:smooth}
+a{color:#B3263E}
+.slab,h1,h2,h3,h4{font-family:'Zilla Slab',Rockwell,Georgia,serif;font-weight:700;letter-spacing:-0.01em}
+.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;font-weight:600;letter-spacing:0.04em}
+.hand{font-family:'Caveat','Segoe Print','Bradley Hand',cursive;font-weight:700}
+button{font:inherit;cursor:pointer;color:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid #2E5A87;outline-offset:3px}
+.shell{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1320px;margin:0 auto}
+.side{position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;padding:28px 0 28px 20px;box-sizing:border-box}
+.tabs{display:flex;flex-direction:column;gap:6px}
+.main{padding:28px 24px 64px;display:flex;flex-direction:column;gap:36px;min-width:0}
+.sheet{position:relative;background-color:#FBF7EE;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 33px,#D8E2EA 33px,#D8E2EA 34px);border-radius:6px;box-shadow:0 1px 0 #CDBFA4,0 10px 24px rgba(60,40,10,0.10);padding:48px 44px 48px 92px;scroll-margin-top:16px}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:64px;width:2px;background:#E7A3A3}
+.card{position:relative;background:#FFFFFF;border:1.5px solid #CDBFA4;border-radius:4px;padding:22px 24px;box-shadow:0 2px 0 #E2D6BE}
+.tape::after{content:"";position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;background:rgba(232,214,160,0.75);transform:rotate(-2deg);border-left:1px dashed rgba(0,0,0,0.08);border-right:1px dashed rgba(0,0,0,0.08)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:22px;align-items:start}
+.mapbox{position:relative;width:100%;aspect-ratio:4/3;background:#F3EAD6;border:1.5px solid #CDBFA4;border-radius:4px;overflow:hidden}
+@media (max-width:900px){
+.shell{grid-template-columns:minmax(0,1fr)}
+.side{position:sticky;top:0;z-index:20;height:auto;padding:10px 16px;background:#E9DFCB;border-bottom:1.5px solid #CDBFA4;overflow-x:auto;overflow-y:hidden}
+.tabs{flex-direction:row;gap:6px}
+.sidehead{display:none}
+.main{padding:20px 12px 48px}
+.sheet{padding:32px 18px 32px 40px}
+.sheet::before{left:24px}
+.split{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div class="shell">
+<aside class="side" aria-label="Sections">
+<div class="sidehead" style="padding:0 14px 18px 4px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230">Field notebook</div>
+<div class="slab" style="font-size:24px;line-height:1.1;margin-top:6px">Fresh Fruit, Broken Bodies</div>
+<div style="height:6px;background:#D8CDB4;border-radius:3px;margin-top:14px;overflow:hidden"><div style="{{progStyle}}"></div></div>
+</div>
+<nav class="tabs">
+<sc-for list="{{navItems}}" as="n" hint-placeholder-count="16">
+<a href="{{n.href}}" style="{{n.style}}"><span class="mono" style="{{n.numStyle}}"><sc-for list="{{n.num_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span><sc-for list="{{n.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></a>
+</sc-for>
+</nav>
+</aside>
+
+<main class="main">
+
+<header class="sheet" style="background-color:#C9A978;background-image:radial-gradient(rgba(255,255,255,0.08) 1px,transparent 1px);background-size:6px 6px;padding:44px 40px">
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center">
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:18px">
+<div class="card" style="background:#FBF7EE;transform:rotate(-1deg);padding:26px 28px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230">IB Social and Cultural Anthropology · Production, Exchange and Consumption</div>
+<h1 style="margin:10px 0 0;font-size:clamp(40px,6vw,72px);line-height:0.98">Fresh Fruit, <span style="color:#B3263E">Broken Bodies</span></h1>
+<div style="font-size:20px;margin-top:10px">Migrant Farmworkers in the United States · Seth M. Holmes, 2013</div>
+</div>
+<p style="margin:0;font-size:19px;color:#2A2015;max-width:560px">An anthropologist and doctor follows Triqui farmworkers from the mountains of Oaxaca, across the Arizona desert, to the strawberry fields of Washington State. Open the notebook and follow the route.</p>
+<div class="hand" style="font-size:28px;color:#5A1320">“we are field workers” (p. 30)</div>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<svg viewBox="0 0 600 440" width="100%" role="img" aria-label="Sketch map of the migration route from San Miguel, Oaxaca, north across the border to California and Washington State" style="display:block;background:#F3EAD6;border:1.5px solid #8A6A3A;border-radius:4px">
+<path d="M120 50 C 70 120, 70 170, 95 190 S 170 240, 200 265 S 240 300, 300 330 S 400 380, 440 395" fill="none" stroke="#B3263E" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"></path>
+<path d="M150 236 L 330 236" stroke="#24211C" stroke-width="3" stroke-dasharray="14 6"></path>
+<text x="335" y="241" font-family="IBM Plex Mono, monospace" font-size="15" fill="#24211C">la línea</text>
+<g font-family="Caveat, cursive" font-size="24" fill="#24211C">
+<circle cx="120" cy="50" r="9" fill="#2F6B3A"></circle><text x="138" y="57">Skagit Valley, WA</text>
+<circle cx="95" cy="190" r="9" fill="#2F6B3A"></circle><text x="112" y="186">Madera, CA</text>
+<circle cx="200" cy="265" r="9" fill="#D9A21B"></circle><text x="218" y="272">Altar, Sonora</text>
+<circle cx="440" cy="395" r="11" fill="#B3263E"></circle><text x="300" y="428">San Miguel, Oaxaca</text>
+</g>
+<g transform="translate(470 70)"><path d="M0 0 C -26 -8, -34 26, 0 48 C 34 26, 26 -8, 0 0 Z" fill="#B3263E"></path><path d="M-12 -4 L 0 -16 L 12 -4" fill="none" stroke="#2F6B3A" stroke-width="5" stroke-linejoin="round"></path><circle cx="-8" cy="14" r="2" fill="#F3EAD6"></circle><circle cx="7" cy="20" r="2" fill="#F3EAD6"></circle><circle cx="-2" cy="30" r="2" fill="#F3EAD6"></circle></g>
+<g transform="translate(250 330)" stroke="#2F6B3A" stroke-width="9" stroke-linecap="round" fill="none"><path d="M0 0 L 0 -70"></path><path d="M0 -30 L -18 -30 L -18 -52"></path><path d="M0 -40 L 16 -40 L 16 -60"></path></g>
+</svg>
+</div>
+</div>
+</header>
+
+<section id="ch-puzzle" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#B3263E">1 · The puzzle</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Is it worth risking your life?</h2>
+<p style="margin:0 0 26px;max-width:760px">Every Saturday a bus of border crossers leaves Tlaxiaco. Most Triqui migrants earn a few thousand dollars a year, at the bottom of the farm. Why do they go, and why does almost nobody, including the pickers, question the system that breaks their bodies?</p>
+<div class="grid3" style="margin-bottom:28px">
+<sc-for list="{{puzzleStats}}" as="s" hint-placeholder-count="6">
+<div class="card"><div class="slab" style="font-size:36px;line-height:1;color:#B3263E"><sc-for list="{{s.big_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:16px;margin-top:8px"><sc-for list="{{s.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div class="mono" style="font-size:12px;color:#7A5230;margin-top:8px"><sc-for list="{{s.ref_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+</sc-for>
+</div>
+<div class="card tape" style="background:#FFFDF6">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;margin-bottom:12px">How you frame it changes the answer</div>
+<div class="chips" style="margin-bottom:14px">
+<sc-for list="{{frameChips}}" as="c" hint-placeholder-count="2"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<p style="margin:0;font-size:19px"><sc-for list="{{frameText_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+</div>
+</section>
+
+<section id="ch-history" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2E5A87">2 · Context</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How did the system take shape?</h2>
+<p style="margin:0 0 22px;max-width:760px">Conquest, labour law, trade agreements and border policy all shape who picks the berries, and on what terms.</p>
+<div class="chips" style="margin-bottom:20px">
+<sc-for list="{{tlChips}}" as="c" hint-placeholder-count="5"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<ol style="list-style:none;margin:0 0 34px;padding:0;display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{timeline}}" as="e" hint-placeholder-count="8">
+<li style="display:grid;grid-template-columns:minmax(92px,120px) minmax(0,1fr);gap:16px;align-items:start">
+<div class="slab" style="font-size:20px;line-height:1.2;text-align:right"><sc-for list="{{e.year_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<div style="{{e.style}}"><div style="font-size:17px"><sc-for list="{{e.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div class="mono" style="font-size:11px;text-transform:uppercase;margin-top:6px;opacity:0.85"><sc-for list="{{e.tagLabel_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+</li>
+</sc-for>
+</ol>
+<h3 style="margin:0 0 6px;font-size:28px">Emic terms</h3>
+<div class="grid3">
+<sc-for list="{{glossary}}" as="g" hint-placeholder-count="8">
+<button type="button" aria-expanded="{{g.expanded}}" onClick="{{g.toggle}}" style="{{g.style}}">
+<span class="slab" style="display:block;font-size:21px"><em><sc-for list="{{g.term_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></em></span>
+<sc-if value="{{g.open}}" hint-placeholder-val="{{ false }}"><span style="display:block;margin-top:6px;font-size:16px"><sc-for list="{{g.def_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></sc-if>
+<sc-if value="{{g.closed}}" hint-placeholder-val="{{ true }}"><span class="hand" style="display:block;margin-top:4px;font-size:20px;color:#7A5230">tap to check</span></sc-if>
+</button>
+</sc-for>
+</div>
+</section>
+
+<section id="ch-route" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#B3263E">3 · The route</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Where does the journey go?</h2>
+<p style="margin:0 0 22px;max-width:760px">Holmes did “follow the people” fieldwork (p. 3). Pick a stop on the route, from the village to the farm.</p>
+<div class="split">
+<div class="mapbox">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true" style="position:absolute;inset:0">
+<polyline points="80,86 62,72 48,61 38,46 26,37 14,24 18,8" fill="none" stroke="#B3263E" stroke-width="0.8" stroke-dasharray="0.5 2.2" stroke-linecap="round"></polyline>
+<line x1="0" y1="53" x2="100" y2="53" stroke="#24211C" stroke-width="0.6" stroke-dasharray="3 1.5"></line>
+</svg>
+<span class="mono" style="position:absolute;right:3%;top:47%;font-size:12px;color:#24211C">US ↑</span><span class="mono" style="position:absolute;right:3%;top:55%;font-size:12px;color:#24211C">Mexico ↓</span>
+<sc-for list="{{stopPins}}" as="p" hint-placeholder-count="7"><button class="mono" type="button" aria-pressed="{{p.pressed}}" aria-label="{{p.name}}" onClick="{{p.pick}}" style="{{p.style}}"><sc-for list="{{p.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="chips">
+<sc-for list="{{stopPins}}" as="p" hint-placeholder-count="7"><button class="mono" type="button" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="{{p.chipStyle}}"><sc-for list="{{p.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> <sc-for list="{{p.short_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<div class="card tape">
+<div class="mono" style="{{stop.tagStyle}}">Stop <sc-for list="{{stop.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> · <sc-for list="{{stop.sub_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<h3 style="margin:8px 0 8px;font-size:30px;line-height:1.1"><sc-for list="{{stop.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<p style="margin:0 0 10px"><sc-for list="{{stop.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div class="mono" style="font-size:13px;color:#7A5230">Key concepts: <sc-for list="{{stop.concept_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+<div class="hand" style="font-size:22px;color:#5A1320">“Macario tells me we are in Arizona now. I see no difference.” (p. 19)</div>
+</div>
+</div>
+</section>
+
+<section id="ch-farm" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#D9A21B">4 · The farm</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Who does what on the Tanaka farm?</h2>
+<p style="margin:0 0 22px;max-width:760px">Holmes drew the farm as a ladder (p. 51). Each rung has its own pay, housing, body position and worries, and ethnicity and citizenship decide who stands where. Bar length shows the number of workers.</p>
+<div class="split">
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{rungs}}" as="r" hint-placeholder-count="7">
+<button type="button" aria-pressed="{{r.pressed}}" onClick="{{r.pick}}" style="{{r.style}}"><span class="slab" style="font-size:17px"><sc-for list="{{r.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="mono" style="font-size:12px"><sc-for list="{{r.count_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button>
+</sc-for>
+<div class="mono" style="font-size:12px;color:#7A5230;margin-top:4px">Approximate numbers at peak season (p. 51)</div>
+</div>
+<div class="card tape">
+<div class="mono" style="{{rung.tagStyle}}"><sc-for list="{{rung.body_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<h3 style="margin:8px 0 12px;font-size:30px;line-height:1.1"><sc-for list="{{rung.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<dl style="margin:0;display:grid;grid-template-columns:minmax(90px,120px) minmax(0,1fr);gap:8px 14px;font-size:17px">
+<dt class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;padding-top:4px">Who</dt><dd style="margin:0"><sc-for list="{{rung.who_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></dd>
+<dt class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;padding-top:4px">Time</dt><dd style="margin:0"><sc-for list="{{rung.time_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></dd>
+<dt class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;padding-top:4px">Housing</dt><dd style="margin:0"><sc-for list="{{rung.home_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></dd>
+<dt class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;padding-top:4px">Worries</dt><dd style="margin:0"><sc-for list="{{rung.worry_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></dd>
+</dl>
+<p class="hand" style="margin:16px 0 0;font-size:23px;line-height:1.25;color:#5A1320"><sc-for list="{{rung.quote_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+</div>
+</div>
+<div class="grid2" style="margin-top:26px">
+<div class="card" style="border-top:6px solid #B3263E"><div class="slab" style="font-size:22px">Conjugated oppression</div><p style="margin:8px 0 0;font-size:17px">Bourgois’ term: ethnicity and class “work together to produce an oppression experientially and materially different from that produced by either alone” (p. 50).</p></div>
+<div class="card" style="border-top:6px solid #2E5A87"><div class="slab" style="font-size:22px">Holmes, out of place</div><p style="margin:8px 0 0;font-size:17px">He could never pick the minimum, yet kept his job and shack. Managers treated him “as a sort of jester” and asked his advice (p. 79).</p></div>
+</div>
+</section>
+
+<section id="ch-berry" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2F6B3A">5 · The berry</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How does a strawberry reach your fridge?</h2>
+<p style="margin:0 0 22px;max-width:760px">Follow the chain of production, exchange and consumption, from corn in Oaxaca to ice cream in the supermarket.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr));gap:10px;margin-bottom:16px">
+<sc-for list="{{chainSteps}}" as="c" hint-placeholder-count="6"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><span class="mono" style="font-size:12px">Step <sc-for list="{{c.step_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="slab" style="display:block;font-size:18px;margin-top:4px"><sc-for list="{{c.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button></sc-for>
+</div>
+<div class="card tape" style="margin-bottom:26px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#2F6B3A">Step <sc-for list="{{chainStep.step_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> · <sc-for list="{{chainStep.isc_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<h3 style="margin:8px 0 8px;font-size:28px"><sc-for list="{{chainStep.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<p style="margin:0;font-size:19px"><sc-for list="{{chainStep.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+</div>
+<div class="grid2">
+<div class="card" style="border-top:6px solid #2F6B3A">
+<div class="slab" style="font-size:22px;margin-bottom:10px">Who pays for the worker?</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:16px">
+<div style="background:#EFF5EC;padding:12px;border-radius:4px"><div class="mono" style="font-size:12px;text-transform:uppercase">Mexico provides</div>Childhood, education, health care, old age, recovery from sickness and injury</div>
+<div style="background:#FBEDEE;padding:12px;border-radius:4px"><div class="mono" style="font-size:12px;text-transform:uppercase">The US provides</div>“only what is necessary while the migrants are working”</div>
+</div>
+<p style="margin:10px 0 0;font-size:15px">Burawoy’s analysis of migrant labour, extended by Holmes (pp. 12–13).</p>
+</div>
+<div class="card" style="border-top:6px solid #D9A21B">
+<div class="slab" style="font-size:22px;margin-bottom:10px">The squeeze on the grower</div>
+<ul style="margin:0;padding-left:20px;font-size:16px;display:flex;flex-direction:column;gap:6px">
+<li>Washington minimum wage $7.16 against $5.75 in South Carolina (p. 55).</li>
+<li>Frozen Chinese strawberries landed for about 40 cents a pound; local growers want 50 (pp. 59–60).</li>
+<li>“Food science” stretches cheap berries with sugar and colouring (p. 59).</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="ch-suffering" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#B3263E">6 · Suffering</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How does inequality become pain?</h2>
+<p style="margin:0 0 22px;max-width:760px">“Suffering” means “not only physical sickness but also mental, existential, and interpersonal anguish” (p. 89). Holmes uses a continuum of four kinds of violence.</p>
+<div class="chips" style="margin-bottom:14px">
+<sc-for list="{{violChips}}" as="c" hint-placeholder-count="4"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<div class="card tape" style="margin-bottom:26px">
+<h3 style="margin:0 0 10px;font-size:28px"><sc-for list="{{viol.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<p style="margin:0 0 12px"><sc-for list="{{viol.def_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div style="background:#FBEDEE;border-left:5px solid #B3263E;padding:12px 16px;font-size:17px"><strong class="mono" style="font-size:12px;text-transform:uppercase">In the ethnography</strong><br><sc-for list="{{viol.ex_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+<div class="grid3">
+<sc-for list="{{healthTiles}}" as="h" hint-placeholder-count="6">
+<div class="card"><div class="slab" style="font-size:30px;line-height:1;color:#2E5A87"><sc-for list="{{h.big_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:16px;margin-top:8px"><sc-for list="{{h.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div class="mono" style="font-size:12px;color:#7A5230;margin-top:8px"><sc-for list="{{h.ref_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+</sc-for>
+</div>
+<p class="hand" style="margin:22px 0 0;font-size:24px;color:#5A1320">“Yet suffering is also roughly cumulative from top to bottom.” (p. 95)</p>
+</section>
+
+<section id="ch-book" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#7A5230">7 · The Ethnography</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">What happens in each chapter?</h2>
+<p style="margin:0 0 22px;max-width:760px">Seven chapters and an appendix. Holmes writes the narrative in sections, keeping the “unfolding narrative nature of the experience of migration” (p. 27).</p>
+<div class="split">
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{chapterList}}" as="c" hint-placeholder-count="8"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><span class="mono" style="font-size:13px;flex:0 0 auto"><sc-for list="{{c.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span style="font-size:16px;line-height:1.3"><sc-for list="{{c.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button></sc-for>
+</div>
+<div class="card tape">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230">Pages <sc-for list="{{chapter.pages_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<h3 style="margin:8px 0 10px;font-size:26px;line-height:1.15"><sc-for list="{{chapter.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<p style="margin:0 0 14px"><sc-for list="{{chapter.summary_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#2F6B3A;margin-bottom:6px">Look for</div>
+<ul style="margin:0 0 14px;padding-left:20px;font-size:17px">
+<sc-for list="{{chapter.look}}" as="l" hint-placeholder-count="3"><li><sc-for list="{{l.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for>
+</ul>
+<div style="background:#EEF3F8;padding:12px 16px;border-radius:4px;font-size:17px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Question</strong><br><sc-for list="{{chapter.q_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</div>
+</section>
+
+<section id="ch-people" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2E5A87">8 · People</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Who are the people?</h2>
+<p style="margin:0 0 22px;max-width:760px">Holmes “altered names and personal information to protect privacy” (p. xix). Add them to your key informants table.</p>
+<div class="chips" style="margin-bottom:16px">
+<sc-for list="{{groupChips}}" as="c" hint-placeholder-count="5"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for>
+</div>
+<div class="grid3" style="margin-bottom:22px">
+<sc-for list="{{peopleCards}}" as="p" hint-placeholder-count="8"><button type="button" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="{{p.style}}"><span class="slab" style="display:block;font-size:20px"><sc-for list="{{p.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span style="display:block;font-size:15px;margin-top:4px"><sc-for list="{{p.tag_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button></sc-for>
+</div>
+<div class="card tape">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline"><h3 style="margin:0;font-size:30px"><sc-for list="{{person.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3><span class="mono" style="font-size:12px;color:#7A5230"><sc-for list="{{person.pages_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></div>
+<div class="mono" style="font-size:13px;color:#2E5A87;margin:6px 0 12px"><sc-for list="{{person.tag_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+<sc-for list="{{person.points}}" as="x" hint-placeholder-count="3"><li><sc-for list="{{x.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for>
+</ul>
+<p class="hand" style="margin:16px 0 0;font-size:24px;line-height:1.25;color:#5A1320"><sc-for list="{{person.quote_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+</div>
+</section>
+
+<section id="ch-excerpts" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2F6B3A">9 · Excerpts</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">What do the key passages reveal?</h2>
+<p style="margin:0 0 22px;max-width:760px">Five passages that carry the ethnography.</p>
+<div class="grid3" style="margin-bottom:20px">
+<sc-for list="{{exCards}}" as="e" hint-placeholder-count="5"><button type="button" aria-pressed="{{e.pressed}}" onClick="{{e.pick}}" style="{{e.style}}"><span class="mono" style="display:block;font-size:12px"><sc-for list="{{e.pages_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="slab" style="display:block;font-size:19px;margin-top:4px"><sc-for list="{{e.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button></sc-for>
+</div>
+<article class="card tape" style="display:flex;flex-direction:column;gap:18px">
+<div><div class="mono" style="{{ex.tagStyle}}"><sc-for list="{{ex.pages_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> · <sc-for list="{{ex.where_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><h3 style="margin:8px 0 0;font-size:30px"><sc-for list="{{ex.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3></div>
+<div class="grid2">
+<div><div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;margin-bottom:6px">What happens</div><p style="margin:0"><sc-for list="{{ex.summary_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p></div>
+<div style="background:#FFF8E6;padding:14px 16px;border-radius:4px"><div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;margin-bottom:6px">Why it matters</div><p style="margin:0;font-size:17px"><sc-for list="{{ex.why_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between"><div class="slab" style="font-size:22px">Annotations</div><button class="mono" type="button" onClick="{{exAll}}" style="min-height:44px;padding:8px 16px;border:2px solid #24211C;background:#FFFFFF;border-radius:4px;font-size:13px"><sc-for list="{{exAllLabel_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></div>
+<sc-for list="{{ex.anns}}" as="a" hint-placeholder-count="6">
+<div style="{{a.boxStyle}}">
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
+<span class="mono" style="{{a.numStyle}}"><sc-for list="{{a.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span>
+<div style="flex:1 1 240px;min-width:0"><div class="hand" style="font-size:24px;line-height:1.2">“<sc-for list="{{a.phrase_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for>”</div><div class="mono" style="font-size:12px;color:#7A5230;margin-top:4px"><sc-for list="{{a.page_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> · <sc-for list="{{a.tag_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+<button class="mono" type="button" aria-expanded="{{a.expanded}}" onClick="{{a.toggle}}" style="min-height:44px;padding:8px 14px;border:none;background:#24211C;color:#FBF7EE;border-radius:4px;font-size:12px"><sc-for list="{{a.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button>
+</div>
+<sc-if value="{{a.open}}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;font-size:17px;background:#FFFFFF;padding:12px 14px;border-radius:4px"><sc-for list="{{a.note_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></sc-if>
+</div>
+</sc-for>
+<div class="grid2">
+<div><div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;margin-bottom:6px">Key concepts · Method</div><div class="chips" style="margin-bottom:8px"><sc-for list="{{ex.concepts}}" as="c" hint-placeholder-count="3"><span class="mono" style="font-size:12px;padding:4px 10px;border:1.5px solid #24211C;border-radius:3px"><sc-for list="{{c.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></sc-for></div><div style="font-size:16px"><sc-for list="{{ex.method_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+<div style="background:#24211C;color:#FBF7EE;padding:14px 16px;border-radius:4px"><div class="mono" style="font-size:12px;text-transform:uppercase;color:#E8C15A;margin-bottom:6px">Think and discuss</div><div style="font-size:17px"><sc-for list="{{ex.question_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+</div>
+</article>
+</section>
+
+<section id="ch-argument" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#B3263E">10 · Argument</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">What is Holmes arguing?</h2>
+<p style="margin:0 0 22px;max-width:760px">That an “ethnicity-citizenship hierarchy” in US agriculture “produces correlated suffering and illness”, and that this hierarchy “becomes invisible” and taken for granted, through symbolic violence (p. 31).</p>
+<ol style="list-style:none;margin:0 0 26px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px">
+<sc-for list="{{explanations}}" as="x" hint-placeholder-count="5"><li style="{{x.style}}"><div class="slab" style="font-size:34px;line-height:1"><sc-for list="{{x.n_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div class="slab" style="font-size:19px;margin:6px 0"><sc-for list="{{x.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:15px"><sc-for list="{{x.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></li></sc-for>
+</ol>
+<div class="card tape" style="display:flex;flex-direction:column;gap:14px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230">Test the argument on a case</div>
+<div class="chips"><sc-for list="{{caseChips}}" as="c" hint-placeholder-count="4"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<p style="margin:0;font-size:18px"><sc-for list="{{readCase.situation_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div class="chips"><sc-for list="{{modeChips}}" as="c" hint-placeholder-count="2"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<div style="{{readStyle}}"><div class="mono" style="font-size:12px;text-transform:uppercase;margin-bottom:6px"><sc-for list="{{readHeading_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><sc-for list="{{readText_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</section>
+
+<section id="ch-concepts" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2E5A87">11 · Key concepts</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How do the 9 key concepts apply?</h2>
+<p style="margin:0 0 22px;max-width:760px">Pick a concept: evidence from the ethnography, questions to apply it, a complication, and Paper 1 practice.</p>
+<div class="chips" style="margin-bottom:18px"><sc-for list="{{conceptChips}}" as="c" hint-placeholder-count="9"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<div class="card tape" style="display:flex;flex-direction:column;gap:16px">
+<div><h3 style="margin:0 0 6px;font-size:32px"><sc-for list="{{concept.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3><p style="margin:0;color:#4A4236"><sc-for list="{{concept.def_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p></div>
+<div class="grid2">
+<div><div class="mono" style="font-size:12px;text-transform:uppercase;color:#2F6B3A;margin-bottom:8px">In the ethnography</div>
+<sc-for list="{{concept.inFF}}" as="e" hint-placeholder-count="4"><div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:17px"><span class="mono" style="flex:0 0 auto;font-size:11px;padding:3px 8px;background:#EFF5EC;border:1px solid #2F6B3A;border-radius:3px;white-space:nowrap"><sc-for list="{{e.ref_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span><sc-for list="{{e.t_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div><div class="mono" style="font-size:12px;text-transform:uppercase;color:#2E5A87;margin-bottom:6px">Apply it</div><ul style="margin:0;padding-left:20px;font-size:17px"><sc-for list="{{concept.apply}}" as="a" hint-placeholder-count="3"><li><sc-for list="{{a.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ul></div>
+<div style="background:#FBEDEE;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Complicate it</strong><br><sc-for list="{{concept.nuance_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</div>
+<div style="background:#24211C;color:#FBF7EE;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:12px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#E8C15A">P1 Q2 Practice</div>
+<div class="slab" style="font-size:22px;line-height:1.3"><sc-for list="{{concept.practice_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<div><button class="mono" type="button" aria-expanded="{{planExpanded}}" onClick="{{togglePlan}}" style="min-height:44px;padding:8px 16px;border:none;background:#E8C15A;color:#24211C;border-radius:4px;font-size:13px"><sc-for list="{{planLabel_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></div>
+<sc-if value="{{planOpen}}" hint-placeholder-val="{{ false }}"><ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><sc-for list="{{concept.plan}}" as="p" hint-placeholder-count="4"><li><sc-for list="{{p.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ol></sc-if>
+</div>
+</div>
+</section>
+
+<section id="ch-theory" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#7A5230">12 · Theory</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Which lenses help explain the data?</h2>
+<p style="margin:0 0 22px;max-width:760px">Holmes draws on several theories. World-systems theory and Appadurai’s global flows come from the class materials and are not used by Holmes himself.</p>
+<div class="chips" style="margin-bottom:18px"><sc-for list="{{lensChips}}" as="c" hint-placeholder-count="7"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<div class="card tape" style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px">
+<div><h3 style="margin:0;font-size:30px"><sc-for list="{{lens.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3><div class="mono" style="font-size:13px;color:#7A5230;margin-top:6px"><sc-for list="{{lens.figures_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div>
+<p style="margin:0"><sc-for list="{{lens.core_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div><div class="mono" style="font-size:12px;text-transform:uppercase;color:#2F6B3A;margin-bottom:6px">In the ethnography</div><ul style="margin:0;padding-left:20px;font-size:17px;display:flex;flex-direction:column;gap:4px"><sc-for list="{{lens.inFF}}" as="x" hint-placeholder-count="3"><li><sc-for list="{{x.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ul></div>
+<div class="grid2">
+<div style="background:#EFF5EC;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Strength</strong><br><sc-for list="{{lens.strength_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<div style="background:#FBEDEE;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Limitation</strong><br><sc-for list="{{lens.limit_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+<div class="hand" style="font-size:23px;color:#5A1320"><sc-for list="{{lens.question_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+<div class="card" style="border-top:6px solid #7A5230;display:flex;flex-direction:column;gap:12px">
+<div class="slab" style="font-size:24px">Applying a theory in four sentences</div>
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:17px">
+<li><strong>State</strong> a relevant theory.</li>
+<li><strong>Summarise</strong> it in one sentence, with a key thinker.</li>
+<li><strong>Apply</strong>: what it helps you explain in the ethnography.</li>
+<li><strong>Evaluate</strong>: what it cannot explain.</li>
+</ol>
+<div><button class="mono" type="button" aria-expanded="{{modelExpanded}}" onClick="{{toggleModel}}" style="min-height:44px;padding:8px 16px;border:2px solid #24211C;background:#FFFFFF;border-radius:4px;font-size:13px"><sc-for list="{{modelLabel_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></div>
+<sc-if value="{{modelOpen}}" hint-placeholder-val="{{ false }}"><p style="margin:0;background:#FFF8E6;padding:14px 16px;border-radius:4px">An anthropological theory we can use to understand Fresh Fruit, Broken Bodies is practice theory. Pierre Bourdieu argues that our habitus and schemes of perception come from the social world, so we “misrecognize” its inequalities as natural, a process he calls symbolic violence (pp. 44, 157). Applied to the Tanaka farm, it explains why a crop manager says Oaxacans pick berries “because they’re lower to the ground”, and why Triqui pickers themselves say pesticides harm only delicate white bodies (pp. 171, 173): the hierarchy is hidden because it appears natural, written on the body. While practice theory explains why the hierarchy goes unquestioned, it can seem to leave little room for change, although Holmes argues that habitus changes when it meets a new field and points to the pickers’ strike as a glimpse of resistance (pp. 177, 184).</p></sc-if>
+</div>
+</section>
+
+<section id="ch-methods" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2F6B3A">13 · Methods &amp; Ethics</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How did Holmes conduct his fieldwork, and was it ethical?</h2>
+<p style="margin:0 0 22px;max-width:760px">“For one and a half years full-time, followed by shorter field visits, I used the classic anthropological research method of participant observation” (p. 3). The book has “no methods section” by design: methods are woven into the story (pp. 199–201).</p>
+<div class="card tape" style="margin-bottom:24px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#7A5230;margin-bottom:12px">Ethnography ID card</div>
+<div class="grid3">
+<div><div class="slab" style="font-size:18px">Ethnographer</div><div style="font-size:16px">Seth M. Holmes, a medical and anthropology student, later physician-anthropologist (pp. 22, 113)</div></div>
+<div><div class="slab" style="font-size:18px">Locations</div><div style="font-size:16px">San Miguel, Oaxaca; the Sonora–Arizona border; Madera, California; the Skagit Valley, Washington (pp. 3–7)</div></div>
+<div><div class="slab" style="font-size:18px">When</div><div style="font-size:16px">2003–2004, 18 months full-time, with shorter visits after; published 2013 (pp. 3–7)</div></div>
+<div><div class="slab" style="font-size:18px">Groups</div><div style="font-size:16px">Triqui migrant farmworkers, and everyone above them on the farm, in clinics and in the valley (p. 29)</div></div>
+<div><div class="slab" style="font-size:18px">Context</div><div style="font-size:16px">NAFTA, post-9/11 border militarisation, US labour law excluding farmworkers (pp. 25, 41–42, 102)</div></div>
+<div><div class="slab" style="font-size:18px">Research focus</div><div style="font-size:16px">How hierarchies of ethnicity, labour and suffering are produced and become “normalized and invisible” (p. 31)</div></div>
+</div>
+</div>
+<div class="grid2" style="margin-bottom:28px">
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="6"><div class="card"><div class="slab" style="font-size:21px;color:#2F6B3A"><sc-for list="{{m.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><p style="margin:6px 0 8px;font-size:17px"><sc-for list="{{m.what_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p><div style="font-size:15px;border-top:1px dashed #CDBFA4;padding-top:8px"><strong class="mono" style="font-size:11px;text-transform:uppercase">Strength / limit</strong> <sc-for list="{{m.eval_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div></sc-for>
+</div>
+<h3 style="margin:0 0 12px;font-size:28px">The defining features of anthropological ethics</h3>
+<div class="chips" style="margin-bottom:14px"><sc-for list="{{ethChips}}" as="c" hint-placeholder-count="6"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<div class="card tape" style="margin-bottom:24px">
+<h4 style="margin:0 0 6px;font-size:26px"><sc-for list="{{eth.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h4>
+<p style="margin:0 0 12px;color:#4A4236"><sc-for list="{{eth.def_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div class="grid2">
+<ul style="margin:0;padding-left:20px;font-size:17px;display:flex;flex-direction:column;gap:6px"><sc-for list="{{eth.pm}}" as="x" hint-placeholder-count="3"><li><sc-for list="{{x.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ul>
+<div style="background:#EEF3F8;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Critical angle</strong><br><sc-for list="{{eth.critical_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</div>
+<div class="card" style="border-top:6px solid #2E5A87">
+<div class="slab" style="font-size:24px">Reflexivity and positionality</div>
+<p style="margin:8px 0 0">Holmes knows his “light-skinned, tall, student-dressed, English-speaking body was treated very differently” (p. 36). He was “out of place in the farm hierarchy in many ways—social class, ethnicity, citizenship” (p. 32), and the experience changed him: “A body cannot live the reality of another category of people without being changed in some sense” (p. 39).</p>
+</div>
+</section>
+
+<section id="ch-aoi" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#D9A21B">14 · Area of inquiry</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How does it connect to Production, Exchange and Consumption?</h2>
+<p style="margin:0 0 22px;max-width:760px">Pick an inquiry-specific concept to see where it appears in the ethnography.</p>
+<div class="chips" style="margin-bottom:16px"><sc-for list="{{iscChips}}" as="c" hint-placeholder-count="8"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<div class="card tape" style="margin-bottom:26px">
+<div class="grid2">
+<div><h3 style="margin:0 0 6px;font-size:30px"><sc-for list="{{isc.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3><p style="margin:0;color:#4A4236"><sc-for list="{{isc.def_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p></div>
+<ul style="margin:0;padding-left:20px;font-size:17px;display:flex;flex-direction:column;gap:6px"><sc-for list="{{isc.pm}}" as="x" hint-placeholder-count="3"><li><sc-for list="{{x.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ul>
+</div>
+</div>
+<h3 style="margin:0 0 12px;font-size:26px">Six ways into the area of inquiry</h3>
+<div class="grid3" style="margin-bottom:26px">
+<sc-for list="{{aoiCards}}" as="a" hint-placeholder-count="6"><div class="card" style="{{a.style}}"><div class="slab" style="font-size:20px"><sc-for list="{{a.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><p style="margin:6px 0 0;font-size:16px"><sc-for list="{{a.text_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p></div></sc-for>
+</div>
+<div style="background:#24211C;color:#FBF7EE;border-radius:4px;padding:22px 24px">
+<div class="mono" style="font-size:12px;text-transform:uppercase;color:#E8C15A;margin-bottom:10px">Paper 2 practice</div>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:18px"><sc-for list="{{aoiQs}}" as="q" hint-placeholder-count="4"><li><sc-for list="{{q.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></li></sc-for></ul>
+<div class="mono" style="font-size:11px;color:#CDBFA4;margin-top:12px">Inquiry-specific concepts as listed on IB study sites. Check them against your copy of the IB guide.</div>
+</div>
+</section>
+
+<section id="ch-links" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#2E5A87">15 · Links to BAQs &amp; other Ethnographies</div>
+<h2 style="margin:8px 0 12px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">How does it compare?</h2>
+<p style="margin:0 0 22px;max-width:760px">Compare Fresh Fruit, Broken Bodies with other ethnographies, then use it to answer the big anthropological questions.</p>
+<div class="grid3" style="margin-bottom:18px">
+<sc-for list="{{linkCards}}" as="l" hint-placeholder-count="5"><button type="button" aria-pressed="{{l.pressed}}" onClick="{{l.pick}}" style="{{l.style}}"><span class="slab" style="display:block;font-size:19px"><em><sc-for list="{{l.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></em></span><span style="display:block;font-size:14px;margin-top:2px"><sc-for list="{{l.byline_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="mono" style="display:block;font-size:11px;margin-top:8px"><sc-for list="{{l.best_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></button></sc-for>
+</div>
+<article class="card tape" style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+<div><h3 style="margin:0;font-size:28px"><em><sc-for list="{{link.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></em></h3><div class="mono" style="font-size:13px;color:#7A5230;margin-top:4px"><sc-for list="{{link.author_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for> (<sc-for list="{{link.year_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for>)</div></div>
+<div style="font-size:17px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Where and who</strong> <sc-for list="{{link.place_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for><br><strong class="mono" style="font-size:12px;text-transform:uppercase">Focus</strong> <sc-for list="{{link.focus_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<div class="grid2">
+<div style="background:#EFF5EC;padding:16px;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div class="slab" style="font-size:21px;color:#2F6B3A">Similarities</div>
+<sc-for list="{{link.sim}}" as="x" hint-placeholder-count="3"><div style="border-top:1px dashed #9DBF94;padding-top:8px"><div class="slab" style="font-size:17px"><sc-for list="{{x.h_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:15px"><strong>FFBB:</strong> <sc-for list="{{x.ff_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:15px"><strong><sc-for list="{{link.short_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for>:</strong> <sc-for list="{{x.other_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div></sc-for></div>
+<div style="background:#FBEDEE;padding:16px;border-radius:4px;display:flex;flex-direction:column;gap:12px"><div class="slab" style="font-size:21px;color:#B3263E">Differences</div>
+<sc-for list="{{link.diff}}" as="x" hint-placeholder-count="3"><div style="border-top:1px dashed #E0A3AB;padding-top:8px"><div class="slab" style="font-size:17px"><sc-for list="{{x.h_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:15px"><strong>FFBB:</strong> <sc-for list="{{x.ff_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div><div style="font-size:15px"><strong><sc-for list="{{link.short_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for>:</strong> <sc-for list="{{x.other_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div></div></sc-for></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+<div class="chips"><sc-for list="{{link.concepts}}" as="c" hint-placeholder-count="3"><span class="mono" style="font-size:12px;padding:4px 10px;border:1.5px solid #24211C;border-radius:3px"><sc-for list="{{c.s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></sc-for></div>
+<div class="hand" style="flex:1 1 280px;font-size:23px;color:#5A1320"><sc-for list="{{link.debate_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</article>
+<h3 style="margin:0 0 12px;font-size:30px">The six big anthropological questions</h3>
+<div class="chips" style="margin-bottom:14px"><sc-for list="{{baqChips}}" as="c" hint-placeholder-count="6"><button class="mono" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}"><sc-for list="{{c.label_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></button></sc-for></div>
+<article class="card tape" style="display:flex;flex-direction:column;gap:14px">
+<h4 style="margin:0;font-size:28px"><sc-for list="{{baq.q_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h4>
+<p style="margin:0;font-size:19px"><strong>A Fresh Fruit, Broken Bodies answer:</strong> <sc-for list="{{baq.answer_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></p>
+<div class="grid2">
+<div><sc-for list="{{baq.ev}}" as="e" hint-placeholder-count="4"><div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:17px"><span class="mono" style="flex:0 0 auto;font-size:11px;padding:3px 8px;background:#EEF3F8;border:1px solid #2E5A87;border-radius:3px;white-space:nowrap"><sc-for list="{{e.ref_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span><sc-for list="{{e.t_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></div></sc-for></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="background:#FBEDEE;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Complicate it</strong><br><sc-for list="{{baq.complicate_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+<div style="background:#EFF5EC;padding:12px 14px;border-radius:4px;font-size:16px"><strong class="mono" style="font-size:12px;text-transform:uppercase">Bring in another ethnography</strong><br><sc-for list="{{baq.link_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></div>
+</div>
+</div>
+</article>
+</section>
+
+<section id="ch-reading" class="sheet">
+<div class="mono" style="font-size:13px;text-transform:uppercase;color:#B3263E">16 · Further reading</div>
+<h2 style="margin:8px 0 22px;font-size:clamp(32px,4.6vw,54px);line-height:1.05">Where can you go next?</h2>
+<sc-for list="{{readGroups}}" as="r" hint-placeholder-count="3">
+<div style="margin-bottom:24px">
+<h3 style="{{r.headStyle}}"><sc-for list="{{r.name_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></h3>
+<div class="grid2">
+<sc-for list="{{r.items}}" as="it" hint-placeholder-count="4"><a href="{{it.url}}" target="_blank" rel="noopener" class="card" style="display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#24211C"><span class="mono" style="{{it.typeStyle}}"><sc-for list="{{it.type_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="slab" style="font-size:19px;line-height:1.2"><sc-for list="{{it.title_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span class="mono" style="font-size:12px;color:#7A5230"><sc-for list="{{it.by_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span><span style="font-size:16px"><sc-for list="{{it.note_s}}" as="gq" hint-placeholder-count="1"><span style="{{gq.st}}">{{gq.t}}</span></sc-for></span></a></sc-for>
+</div>
+</div>
+</sc-for>
+</section>
+
+<footer style="padding:8px 8px 0;font-size:14px;color:#4A4236;line-height:1.6">All material about the ethnography, including quotations, people and page numbers, comes from Holmes, S. M. (2013) <em>Fresh Fruit, Broken Bodies: Migrant Farmworkers in the United States</em>, Berkeley: University of California Press. All content authored by James Williams. Illustrations are original sketches.</footer>
+
+</main>
+</div>
+</template>
+<script>
+// Minimal standalone renderer for the study site template.
+(function () {
+  class DCLogic {
+    constructor(props) { this.props = props || {}; this.state = {}; }
+    setState(patch) { Object.assign(this.state, patch); scheduleRender(); }
+  }
+  window.DCLogic = DCLogic;
+
+  let comp = null, tpl = null, root = null, pending = false;
+
+  function resolve(path, scope, vals) {
+    path = path.trim();
+    const parts = path.split('.');
+    let cur;
+    for (let i = scope.length - 1; i >= 0; i--) { if (Object.prototype.hasOwnProperty.call(scope[i], parts[0])) { cur = scope[i][parts[0]]; break; } }
+    if (cur === undefined) cur = vals[parts[0]];
+    for (let i = 1; i < parts.length; i++) { if (cur == null) return undefined; cur = cur[parts[i]]; }
+    return cur;
+  }
+  const HOLE = /\{\{([^}]+)\}\}/g;
+  function interp(str, scope, vals) {
+    return str.replace(HOLE, (m, p) => { const v = resolve(p, scope, vals); return v == null ? '' : String(v); });
+  }
+
+  function build(node, scope, vals, out) {
+    if (node.nodeType === 3) {
+      const t = node.nodeValue;
+      out.push(document.createTextNode(t.indexOf('{{') >= 0 ? interp(t, scope, vals) : t));
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    const tag = node.localName;
+    if (tag === 'sc-for') {
+      const m = /^\s*\{\{([^}]+)\}\}\s*$/.exec(node.getAttribute('list') || '');
+      const list = m ? resolve(m[1], scope, vals) : null;
+      const as = node.getAttribute('as');
+      if (Array.isArray(list)) list.forEach((item) => { const s = scope.concat([{ [as]: item }]); node.childNodes.forEach((c) => build(c, s, vals, out)); });
+      return;
+    }
+    if (tag === 'sc-if') {
+      const m = /^\s*\{\{([^}]+)\}\}\s*$/.exec(node.getAttribute('value') || '');
+      if (m && resolve(m[1], scope, vals)) node.childNodes.forEach((c) => build(c, scope, vals, out));
+      return;
+    }
+    const el = node.namespaceURI === 'http://www.w3.org/2000/svg'
+      ? document.createElementNS(node.namespaceURI, node.tagName)
+      : document.createElement(tag);
+    for (const a of Array.from(node.attributes)) {
+      const v = a.value;
+      if (a.name.toLowerCase() === 'onclick') {
+        const m = /^\s*\{\{([^}]+)\}\}\s*$/.exec(v);
+        el.__onclick = m ? resolve(m[1], scope, vals) : null;
+        continue;
+      }
+      if (a.name.indexOf('hint-') === 0) continue;
+      el.setAttribute(a.name, v.indexOf('{{') >= 0 ? interp(v, scope, vals) : v);
+    }
+    const kids = [];
+    node.childNodes.forEach((c) => build(c, scope, vals, kids));
+    kids.forEach((k) => el.appendChild(k));
+    out.push(el);
+  }
+
+  // Patch the live DOM to match a freshly built tree, by position.
+  function morph(live, next) {
+    if (live.nodeType === 3) { if (live.nodeValue !== next.nodeValue) live.nodeValue = next.nodeValue; return; }
+    const la = live.attributes, na = next.attributes;
+    for (let i = la.length - 1; i >= 0; i--) { const n = la[i].name; if (!next.hasAttribute(n)) live.removeAttribute(n); }
+    for (let i = 0; i < na.length; i++) { const n = na[i].name, v = na[i].value; if (live.getAttribute(n) !== v) live.setAttribute(n, v); }
+    live.__onclick = next.__onclick;
+    morphChildren(live, next);
+  }
+  function same(a, b) { return a.nodeType === b.nodeType && (a.nodeType === 3 || a.nodeName === b.nodeName); }
+  function morphChildren(live, next) {
+    const lk = Array.from(live.childNodes), nk = Array.from(next.childNodes);
+    for (let i = 0; i < nk.length; i++) {
+      const l = lk[i], n = nk[i];
+      if (!l) live.appendChild(n);
+      else if (same(l, n)) morph(l, n);
+      else live.replaceChild(n, l);
+    }
+    for (let i = nk.length; i < lk.length; i++) live.removeChild(lk[i]);
+  }
+
+  function render() {
+    pending = false;
+    const vals = comp.renderVals();
+    const out = [];
+    tpl.content.childNodes.forEach((c) => build(c, [], vals, out));
+    const holder = document.createElement('div');
+    out.forEach((n) => holder.appendChild(n));
+    if (!root.firstChild) { while (holder.firstChild) root.appendChild(holder.firstChild); }
+    else morphChildren(root, holder);
+  }
+  function scheduleRender() { if (!comp || pending) return; pending = true; requestAnimationFrame(render); }
+
+  document.addEventListener('click', (e) => {
+    let t = e.target;
+    while (t && t !== document) { if (typeof t.__onclick === 'function') { t.__onclick(e); return; } t = t.parentNode; }
+  });
+
+  window.__mount = function (Component) {
+    tpl = document.getElementById('tpl');
+    root = document.getElementById('app');
+    comp = new Component({});
+    pending = true; render();
+    if (comp.componentDidMount) comp.componentDidMount();
+  };
+})();
+
+
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { prog: 0, active: 'puzzle', frame: 'choice', tl: 'all', gloss: {}, stop: 'sanmiguel', rung: 'pick', step: 'corn', viol: 'structural', chapter: 'c1', pgroup: 'all', person: 'samuel', exId: 'cross', ann: {}, caseId: 'abelino', mode: 'structure', concept: 'belief', planOpen: false, lens: 'practice', modelOpen: false, eth: 'access', isc: 'labour', link: 'pm', baq: 'culture' };
+}
+
+componentDidMount() {
+this._onScroll = () => {
+if (this._raf) return;
+this._raf = requestAnimationFrame(() => {
+this._raf = null;
+const doc = document.documentElement;
+const max = (doc.scrollHeight || 0) - (window.innerHeight || 0);
+const y = window.scrollY || doc.scrollTop || 0;
+const p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+let active = 'puzzle';
+const ids = this.data().nav.map((n) => n[0]);
+for (let i = 0; i < ids.length; i++) {
+const el = document.getElementById('ch-' + ids[i]);
+if (el && el.getBoundingClientRect().top < 160) active = ids[i];
+}
+if (Math.abs(p - this.state.prog) > 0.003 || active !== this.state.active) this.setState({ prog: p, active: active });
+});
+};
+window.addEventListener('scroll', this._onScroll, { passive: true });
+this._onScroll();
+}
+
+componentWillUnmount() {
+if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+}
+
+chip(sel, color) {
+const c = color || '#24211C';
+return 'min-height:44px; padding:8px 14px; border-radius:4px; font-size:13px; line-height:1.2; text-align:left; border:2px solid ' + c + '; ' + (sel ? 'background:' + c + '; color:#FBF7EE;' : 'background:#FFFFFF; color:#24211C;');
+}
+
+tile(sel, color) {
+return 'width:100%; min-height:76px; padding:14px 16px; border-radius:4px; text-align:left; border:2px solid ' + color + '; border-left-width:8px; ' + (sel ? 'background:' + color + '; color:#FBF7EE; box-shadow:3px 3px 0 #24211C;' : 'background:#FFFFFF; color:#24211C;');
+}
+
+data() {
+if (this._d) return this._d;
+const d = {};
+d.nav = [['puzzle', 'The puzzle'], ['history', 'Context'], ['route', 'The route'], ['farm', 'The farm'], ['berry', 'The berry'], ['suffering', 'Suffering'], ['book', 'The Ethnography'], ['people', 'People'], ['excerpts', 'Excerpts'], ['argument', 'Argument'], ['concepts', 'Key concepts'], ['theory', 'Theory'], ['methods', 'Methods & Ethics'], ['aoi', 'Production, Exchange & Consumption'], ['links', 'Links to BAQs & other Ethnographies'], ['reading', 'Further reading']];
+
+d.puzzleStats = [
+['$3,000–$5,000', 'what most Triqui migrants earn in a year', 'p. 42'],
+['$1,500–$2,500', 'the cost of one border crossing: rides, food and a coyote', 'p. 42'],
+['51 lb', 'of strawberries an hour, at 14 cents a pound, to reach the $7.16 minimum wage', 'p. 73'],
+['500+', 'people died in the Tucson sector of the border in the first year of fieldwork', 'p. 8'],
+['95%', 'of US agricultural workers born in Mexico, 52% of them unauthorised', 'p. 40'],
+['1 million', 'indigenous Mexicans, mostly Mixtec and Triqui, estimated to live in the US', 'p. 42']
+];
+d.frames = {
+choice: { label: 'Framed as a choice', text: 'The church poster in Altar asks: “Is it worth risking your life?” Like much media discourse, it “frames the crossing of the border as an individual choice, a choice to take on mortal risk.” In the US this framing “is used regularly to justify a lack of grief for those who die and a lack of action” (p. 21).' },
+survival: { label: 'Reframed as survival', text: 'For Holmes’ companions “it would be riskier to stay in San Miguel without work, money, food, or education.” Crossing “is not a choice to engage in a risk behavior but rather a process necessary to survive, to make life less risky” (p. 21). Staying means “a slow, communal death by the unequal, ‘free’ market” (p. 26).' }
+};
+
+d.tags = { econ: ['Economy & trade', '#2F6B3A'], law: ['Law & policy', '#2E5A87'], triqui: ['Triqui history', '#B3263E'], field: ['Fieldwork', '#7A5230'] };
+d.timeline = [
+['Colonial era', 'triqui', 'Under pressure from Spanish conquerors, indigenous groups became “closed corporate communities”, suspicious of outsiders (Eric Wolf).', 'p. 5'],
+['1935', 'law', 'The Wagner Act denies agricultural workers the right to collective bargaining.', 'p. 102'],
+['1938', 'law', 'The Fair Labor Standards Act guarantees minimum wage and overtime, but not for agricultural workers.', 'p. 102'],
+['1940s', 'econ', 'The Tanaka family’s parents’ generation loses half its land during Japanese American internment.', 'pp. 48–49'],
+['1960', 'law', 'CBS broadcasts “Harvest of Shame” on the conditions of migrant farmworkers.', 'p. 126'],
+['1962', 'law', 'The Migrant Health Act creates the Migrant Health Program.', 'p. 126'],
+['1975', 'law', 'California’s Agricultural Labor Relations Act gives farmworkers the right to bargain, after organising by the United Farm Workers.', 'p. 102'],
+['1986', 'law', 'An amnesty for farmworkers lets Bernardo become a US resident.', 'p. 103'],
+['Late 1980s', 'triqui', 'Triqui workers begin coming to Washington State for the berry season, returning to San Miguel in winter.', 'p. 42'],
+['1994', 'econ', 'NAFTA takes effect. Since then the US has raised farm subsidies 300 percent while Mexico cut support for corn producers.', 'p. 41'],
+['1994', 'law', 'California voters pass Proposition 187, denying public services to anyone “reasonably suspect[ed]” of being undocumented.', 'pp. 40–41'],
+['After 9/11', 'law', 'The border is militarised. Ironically, Triqui migrants now stay in the US several years at a time.', 'p. 42'],
+['2003', 'econ', 'NAFTA begins deregulation of all agricultural trade. US corn undersells local, family-grown corn in San Miguel.', 'pp. 25, 41'],
+['2003–04', 'field', 'Holmes lives in the Tanaka labour camp, migrates to Madera, California, lives in San Miguel and crosses the border.', 'pp. 3–7'],
+['2004', 'law', 'Arizona passes the Taxpayer and Citizen Protection Act, requiring proof of status for public benefits.', 'p. 41'],
+['2009', 'triqui', 'US media misrepresent Triqui bridewealth in Greenfield, California: “Man Sells Daughter for Money, Beer, and Meat.”', 'p. 139']
+];
+d.glossary = [
+['sufrimiento', 'Suffering: how Triqui companions describe their everyday lives, above all the border crossing (p. 8).'],
+['la línea', 'The line: the US–Mexico border (p. 6).'],
+['coyote', 'A border-crossing guide (p. 1).'],
+['la migra', 'The Border Patrol (p. 14).'],
+['gabacho', 'A white American. “Hurry up, gabacho!” (p. 8).'],
+['aguantar', 'To hold out, bear, endure: “We Triquis are strong and aguantamos” (p. 173).'],
+['puro trabajo', 'Pure work: what the beautiful valley means to the pickers (p. 89).'],
+['salir adelante', 'To move ahead, get on in life (pp. 76–77).'],
+['cooperar', 'To do one’s part or pay one’s share for a group expense (p. 14).'],
+['suerte', 'Luck: a protective bundle of coyote fur and pine sap made by a Triqui healer (p. 1).'],
+['contrato', 'The pickers’ signed list of grievances, binding in Triqui legal tradition (p. 179).'],
+['mestizo', 'A Mexican of mixed indigenous and Spanish descent, the “regular Mexican” of everyday talk (p. 203).']
+];
+
+d.stops = [
+{ id: 'sanmiguel', n: '1', name: 'San Miguel, Oaxaca', sub: 'Home village', x: 80, y: 86, color: '#B3263E', text: 'A Triqui village at almost nine thousand feet with about three thousand inhabitants, almost half of them working in the US for most of the year (p. 3). Holmes lived here in spring 2004 with Samuel’s family, carrying water, planting corn and taking the bulls to pasture (p. 6).', concept: 'Society · Change' },
+{ id: 'bus', n: '2', name: 'The bus north', sub: 'Tlaxiaco to Altar', x: 62, y: 72, color: '#7A5230', text: 'Forty-nine hours on a crowded bus through five army checkpoints, all funded, one soldier explains, by the US Drug Enforcement Agency (p. 2).', concept: 'Power' },
+{ id: 'altar', n: '3', name: 'Altar, Sonora', sub: 'Border town', x: 48, y: 61, color: '#D9A21B', text: 'A town “clearly and obviously set up for border crossers”: moneychangers, Western Union, aisles of water and Gatorade, and church posters asking “Is it worth risking your life?” (p. 12).', concept: 'Materiality' },
+{ id: 'desert', n: '4', name: 'The Arizona desert', sub: 'Crossing la línea', x: 38, y: 46, color: '#B3263E', text: 'Running under barbed-wire fences at night, rubbing garlic on boots against rattlesnakes, hiding from a helicopter: “I feel like a rabbit, vulnerable and hunted” (pp. 18–19).', concept: 'Identity · Power' },
+{ id: 'jail', n: '5', name: 'Border Patrol jail', sub: 'Apprehended', x: 26, y: 37, color: '#2E5A87', text: 'The group is caught in a creek bed. Holmes’ companions are fingerprinted and deported. He is fined $5,000 for “Entry Without Inspection” (pp. 21–24).', concept: 'Power · Belief and knowledge' },
+{ id: 'madera', n: '6', name: 'Madera, California', sub: 'Winter', x: 14, y: 24, color: '#2F6B3A', text: 'A week homeless, washing in city parks, then nineteen people in a three-bedroom slum apartment, pruning grapevines for less than minimum wage (pp. 6, 81–82).', concept: 'Social relations' },
+{ id: 'skagit', n: '7', name: 'Skagit Valley, Washington', sub: 'The berry farm', x: 18, y: 8, color: '#B3263E', text: 'The Tanaka Brothers Farm, the largest in the valley: some five hundred workers at the peak of the season, living in plywood shacks “one inch above squalor” (pp. 5, 48).', concept: 'Society · Power' }
+];
+
+d.ladder = [
+{ id: 'exec', name: 'Farm executives', count: '10', who: 'Third-generation Japanese American Tanaka brothers and Anglo-American professionals (p. 51).', body: 'Indoor, sitting', time: 'Choose their breaks; work long days, seven days a week (p. 54).', home: 'Comfortable, heated houses with indoor bathrooms (p. 60).', worry: 'Farm survival amid corporate agribusiness and global competition (p. 52).', quote: '“In our business, we grow it for the next generation.” John Tanaka (p. 54)', color: '#2E5A87' },
+{ id: 'admin', name: 'Administrative assistants', count: '10', who: 'Mostly white women, with a few Latina US citizens (p. 60).', body: 'Indoor, sitting', time: 'Six or seven days a week, minimum wage, no overtime (p. 62).', home: 'Rural working-class housing (p. 84).', worry: 'The moods of their bosses (p. 62).', quote: '“I started out like they did; I started out at the bottom.” Maria (p. 62)', color: '#2E5A87' },
+{ id: 'crop', name: 'Crop managers', count: '3', who: 'White men in charge of a crop from planting to delivery (p. 62).', body: 'Standing and walking', time: 'From 5 a.m., seven days a week, breaks when they choose (p. 62).', home: 'Private offices in the field house (p. 62).', worry: 'Weather, machinery and “the docility of their labor force” (p. 62).', quote: '“I can pick strawberries with 300 guys, but 350’s a lot nicer.” Scott (p. 64)', color: '#7A5230' },
+{ id: 'super', name: 'Supervisors (crew bosses)', count: '10', who: 'Mostly US Latinos, a few white US citizens and mestizo Mexicans, one Mixtec (p. 65).', body: 'Standing and walking', time: 'Outside all day, under the crop managers (p. 65).', home: 'The insulated, year-round labour camp (p. 65).', worry: 'Keeping pickers fast without dropping berries (p. 65).', quote: '“It’s unfair. I think there should be checks and balances. This isn’t a dictatorship.” Barbara (p. 66)', color: '#7A5230' },
+{ id: 'check', name: 'Checkers', count: '20', who: 'Local white teenagers who weigh the buckets and punch the cards (p. 68).', body: 'Sitting or standing in shade', time: 'Minimum wage, allowed to talk and sit (p. 70).', home: 'Their parents’ homes.', worry: 'Instructions from supervisors on times and weights (p. 68).', quote: '“Even though my berries weighed 28 pounds, I was marked for 26.” Holmes (p. 69)', color: '#D9A21B' },
+{ id: 'hourly', name: 'Hourly field workers', count: '60', who: 'Mostly mestizo Mexicans, a few Mixtecs; Latinos from Texas on the raspberry machines (p. 71).', body: 'Seated on machines or driving tractors', time: 'Seven days a week, 5 a.m. to early evening (p. 71).', home: 'Camps with wood under the tin roof but no heat (p. 71).', worry: 'Sun, rain and pesticide spraying (p. 71).', quote: '“The hourly jobs, the salaried jobs are better because you can count on how much you will make. But they don’t give those jobs to us.” Abelino (p. 73)', color: '#2F6B3A' },
+{ id: 'pick', name: 'Contract pickers', count: '300', who: 'Almost all Triqui men, women and teenagers from San Miguel (p. 73).', body: 'Kneeling and bent over', time: 'Few or no breaks from 5 a.m.; seven days a week until the last strawberry (pp. 73–74).', home: 'The camp farthest from headquarters: no heat, no insulation, no wood under the tin roof (p. 72).', worry: 'Missing the minimum twice means losing the job and the shack (p. 73).', quote: '“If we go slowly, we can’t make any money and we get in trouble.” Joaquin (p. 77)', color: '#B3263E' }
+];
+
+d.chain = [
+{ id: 'corn', step: '1', name: 'Corn in Oaxaca', text: 'NAFTA bans tariffs but not subsidies, “effectively enacting an inverse tariff against Mexican corn.” US corn undersells family-grown corn in San Miguel (p. 25).', isc: 'Production · Exchange' },
+{ id: 'labour', step: '2', name: 'Labour on the move', text: 'Young, healthy workers are raised and educated in Oaxaca and return home when old, sick or injured: the US “externalizes the costs of labor force renewal” (pp. 12–13).', isc: 'Labour' },
+{ id: 'field', step: '3', name: 'Picking', text: 'Pickers earn 14 cents a pound and must bring in 51 pounds of deleafed strawberries an hour (p. 73). The pay for strawberries has risen only a few cents in a decade (p. 66).', isc: 'Labour · Production' },
+{ id: 'plant', step: '4', name: 'Processing', text: 'The farm is vertically integrated, from nursery to processing plant. Most fruit is sold under the labels of larger firms, from Driscoll to Häagen-Dazs (p. 49).', isc: 'Production · Distribution' },
+{ id: 'market', step: '5', name: 'Global market', text: 'Tom competes with Poland, Chile and China: “I can buy finished product landed here from China … for probably forty cents a pound,” while local growers want fifty (pp. 59–60).', isc: 'Exchange · Globalisation' },
+{ id: 'you', step: '6', name: 'Your fridge', text: '“It is likely that the last hands to hold the blueberries, strawberries, peaches, asparagus, or lettuce before you pick them up in your local grocery store belong to Latin American migrant laborers” (p. 43).', isc: 'Consumption' }
+];
+
+d.health = [
+['5×', 'the fatality rate of all workers, for agricultural workers', 'p. 101'],
+['6×', 'tuberculosis prevalence among migrant workers', 'pp. 101–2'],
+['13%', 'of the intended migrant population served by the federal Migrant Health Program', 'p. 102'],
+['<30% vs 84%', 'of migrant labourers with health insurance, against US residents overall', 'p. 103'],
+['<10% vs 30%', 'insured: indigenous against mestizo farmworkers in California', 'p. 103'],
+['15 states', 'the only ones not wholly or partly excluding farmworkers from workers’ compensation', 'p. 102']
+];
+d.violence = [
+{ id: 'structural', name: 'Structural violence', def: '“Violence committed by configurations of social inequalities that, in the end, has injurious effects on bodies similar to the violence of a stabbing or shooting” (p. 43).', ex: 'Abelino’s knee: as an undocumented Triqui man he is excluded from all but “one narrow and particularly traumatic labor position” (p. 94).' },
+{ id: 'symbolic', name: 'Symbolic violence', def: 'Bourdieu: the internalisation and legitimation of hierarchy, “with the unwitting consent of the dominated” (p. 89).', ex: 'Crescencio’s headaches follow racist insult and lead him to drink, “involuntarily embodying the stereotype” that justifies the insult (p. 98).' },
+{ id: 'political', name: 'Direct political violence', def: '“Targeted physical violence and terror administered by official authorities and those opposing [them]” (Bourgois, p. 89).', ex: 'Bernardo was kidnapped and beaten by “the blue soldiers” as a suspected member of the MULT (pp. 106–7).' },
+{ id: 'everyday', name: 'Everyday violence', def: 'Scheper-Hughes: “normalized micro-interactional expressions of violence” that produce “a common sense of violence and humiliation” (pp. 89–90).', ex: 'Triqui violence between political parties can be read as a mimesis of the violent displacement they have suffered (p. 109).' }
+];
+d.chapters = [
+{ id: 'c1', n: '1', title: 'Introduction: “Worth Risking Your Life?”', pages: '1–29', summary: 'Holmes crosses the border from Oaxaca into Arizona with Macario, Joaquin and other Triqui men and is arrested. He introduces his “follow the people” multi-sited fieldwork and challenges push-and-pull models that treat migration as an individual choice.', look: ['Fieldnotes in italics: why use them?', 'Burawoy’s idea of externalised costs (pp. 12–13)', 'NAFTA and corn (p. 25)'], q: 'Why does Holmes say crossing the border is “a process necessary to survive” rather than a risk behaviour?' },
+{ id: 'c2', n: '2', title: '“We Are Field Workers”: Embodied Anthropology of Migration', pages: '30–44', summary: 'Holmes explains his embodied method: his own aching body produced field notes. He shows how his white, tall, English-speaking body was treated differently, and defines structural and symbolic violence.', look: ['“My body offered important field notes” (p. 35)', 'The closet and the Burger King fries (pp. 35–36)', 'Structural and symbolic violence (pp. 43–44)'], q: 'What can embodied anthropology show that interviews cannot? What are its limits?' },
+{ id: 'c3', n: '3', title: 'Segregation on the Farm: Ethnic Hierarchies at Work', pages: '45–87', summary: 'A “vertical slice” of the Tanaka farm, from executives to Triqui pickers. The hierarchy follows ethnicity and citizenship and produces “conjugated oppression”. Holmes argues it is produced by larger structures, not willed by the growers.', look: ['The labour hierarchy diagrams (pp. 51, 85)', '“Marginalization begets marginalization” (p. 78)', 'Collective bad faith (p. 87)'], q: 'Why does Holmes avoid blaming the farm owners?' },
+{ id: 'c4', n: '4', title: '“How the Poor Suffer”: Embodying the Violence Continuum', pages: '88–110', summary: 'Three Triqui men show how different forms of violence become sickness: Abelino’s knee (structural), Crescencio’s headache (symbolic) and Bernardo’s stomach (political). Suffering is “roughly cumulative from top to bottom.”', look: ['The violence continuum (pp. 89–90)', 'Health disparities (pp. 99–103)', 'The impossibly heavy statue (pp. 107–8)'], q: 'How does each man’s pain link the body to wider structures?' },
+{ id: 'c5', n: '5', title: '“Doctors Don’t Know Anything”: The Clinical Gaze in Migrant Health', pages: '111–154', summary: 'Following the three men into clinics in Washington, California and Oaxaca, Holmes shows how well-meaning clinicians, short of time and trained in an acontextual “gaze”, end up blaming patients for their suffering.', look: ['Foucault’s clinical gaze (pp. 114–16)', 'Bernardo charted as “an old boxer” (p. 142)', 'Structural competency (p. 153)'], q: 'Why do Triqui patients conclude that los médicos no saben nada?' },
+{ id: 'c6', n: '6', title: '“Because They’re Lower to the Ground”: Naturalizing Social Suffering', pages: '155–181', summary: 'How inequality comes to seem natural: the hiddenness of migrant bodies, metaphors of dirt, blaming the poor, normalisation, beliefs about bodies, and internalised pride. The chapter ends with the pickers’ strike.', look: ['Mary Douglas on dirt (p. 163)', '“Oaxacans like to work bent over” (p. 170)', 'The strike and the memo (pp. 177–80)'], q: 'How do the Triqui themselves help naturalise their position?' },
+{ id: 'c7', n: '7', title: 'Conclusion: Change, Pragmatic Solidarity, and Beyond', pages: '182–198', summary: 'Holmes looks for hope: in Bourdieu’s ideas of change, in a new vocabulary, in Gramsci’s “war of position”, in pragmatic solidarity on the farm, in liberation medicine, and in broad coalitions for global equity.', look: ['Words: “illegal alien”, “unskilled”, “dialect” (pp. 185–89)', 'Pragmatic solidarity (pp. 190–92)', 'Liberation medicine (pp. 193–96)'], q: 'Which of Holmes’ calls to action seems most realistic, and why?' },
+{ id: 'app', n: 'A', title: 'Appendix: On Ethnographic Writing and Contextual Knowledge', pages: '199–201', summary: 'Why the book has “no methods section”: Holmes weaves his methods and positionality into the narrative so readers can judge his interpretations themselves.', look: ['“First read the ethnography, then think about whether the analysis makes sense” (p. 199)'], q: 'Is a separate methods section more or less honest than Holmes’ approach?' }
+];
+
+d.peopleGroups = [['all', 'Everyone'], ['triqui', 'Triqui companions'], ['farm', 'On the farm'], ['clinic', 'Clinics'], ['valley', 'Valley & Mexico']];
+d.people = [
+{ id: 'samuel', g: 'triqui', name: 'Samuel', tag: '31, Triqui father, key informant', pages: 'pp. 30, 33, 36, 76–77, 80', points: ['Sends money from the US to his father, sister and nieces in San Miguel (p. 33).', 'Explains Holmes to others: “He wants to experience for himself how the poor suffer” (p. 33).', 'On the checkers: “If a person has 34 pounds of strawberries, 4 pounds are stolen” (p. 76).'], quote: '“We dedicate everything to the fields, we are field workers.” (p. 30)' },
+{ id: 'macario', g: 'triqui', name: 'Macario', tag: '29, one of the fastest strawberry pickers', pages: 'pp. 10, 18, 27', points: ['Holmes’ neighbour in the labour camp and guide on the crossing (p. 10).', 'His two youngest children were born in the US; the older two stay in San Miguel with his parents (p. 10).', 'After recrossing he will not talk much about it, afraid others would mock him for not being tougher (p. 27).'], quote: '“There is no other option left for us.” (p. 18)' },
+{ id: 'abelino', g: 'triqui', name: 'Abelino', tag: '35, father of four, knee injury', pages: 'pp. 90–95, 117–125, 167', points: ['Injures his knee while pivoting between rows; the supervisor says “OK” and drives away (pp. 93–94).', 'Sees four doctors, a physical therapist and a Triqui healer; his workers’ compensation claim is closed (pp. 94, 123–24).', 'Turned away from the farm’s English classes because he lives in the camp (p. 167).'], quote: '“We have to migrate to survive.” (p. 92)' },
+{ id: 'crescencio', g: 'triqui', name: 'Crescencio', tag: 'Picker with a seven-year headache', pages: 'pp. 96–98, 132–135', points: ['His headaches come when supervisors call him “stupid Oaxacan” or tell him to hurry (p. 97).', 'He seeks help so he will not get angry with his family (p. 97).', 'An apprentice Triqui healer (p. 128).'], quote: 'The only thing that worked: “drinking twenty to twenty-four beers” (p. 98).' },
+{ id: 'bernardo', g: 'triqui', name: 'Bernardo', tag: 'Elder from San Pedro, stomach pain', pages: 'pp. 103–107, 141–144', points: ['Became a US resident in the 1986 amnesty; works summers in an Alaska fish plant (p. 103).', 'Beaten by the “blue soldiers” as a suspected MULT member (pp. 106–7).', 'A US hospital chart records him as “an old boxer” (p. 142).'], quote: '“So much working [tanto trabajar] wears out a body.” (p. 106)' },
+{ id: 'marcelina', g: 'triqui', name: 'Marcelina', tag: '28, Triqui mother of two', pages: 'pp. 74–76', points: ['Speaks at a local seminar, in Spanish, her second language (p. 75).', 'The camp manager will not give a room to a single woman (p. 75).', 'She had to give up school herself (p. 76).'], quote: '“I have been here four years without seeing my son.” (p. 76)' },
+{ id: 'mateo', g: 'farm', name: 'Mateo', tag: '29, the only Mixtec crew boss', pages: 'pp. 66, 171, 172, 174', points: ['The only Oaxacan on the farm who speaks English (p. 66).', 'Worries about pregnant women picking among pesticides (p. 66).', 'Calls the Triqui “tough brutes, raring to go for work” (p. 171).'], quote: 'He hopes to “work with the mind instead of the body” (p. 66).' },
+{ id: 'john', g: 'farm', name: 'John Tanaka', tag: 'Farm president, former army officer', pages: 'pp. 53–56, 168, 179', points: ['Competes with China and with states paying a lower minimum wage (p. 55).', 'Believes each group leaves agriculture after “a three-generation move” (p. 56).', 'Files the pickers’ signed contrato as a “memo” (p. 179).'], quote: '“They don’t want a lunch break.” (p. 168)' },
+{ id: 'shelly', g: 'farm', name: 'Shelly', tag: 'Supervisor of the white crew and checkers', pages: 'pp. 67, 69, 170, 175', points: ['Missed the days of “traditional Mexicans”; called Oaxacans “more dirty” (p. 67).', 'Discourages teenage checkers from talking to pickers (pp. 69, 170).', 'Married to Rob Tanaka (p. 67).'], quote: '“What are you doing standing in my flowers? Shoo! Shoo!” (p. 175)' },
+{ id: 'scott', g: 'farm', name: 'Scott', tag: 'Strawberry and apple crop manager', pages: 'pp. 63–65, 171–172', points: ['Estimates 90 percent of pickers are undocumented (p. 65).', 'Says Triqui pickers are “too short” for apples (p. 171).', 'Denies pickers can get sick from pesticides (p. 172).'], quote: 'Oaxacans are perfect for berries “because they’re lower to the ground” (p. 171).' },
+{ id: 'samantha', g: 'farm', name: 'Samantha', tag: 'Bilingual receptionist', pages: 'pp. 61, 118, 121, 166', points: ['Describes Oaxacans as “dirty” and “simple” (p. 61).', 'Refuses Abelino lighter work: “No, because no” (p. 118).', 'Complains of cold hands while pickers sleep unheated (p. 121).'], quote: '“They don’t have bank accounts because they don’t know how; they are like kids.” (p. 166)' },
+{ id: 'samuelson', g: 'clinic', name: 'Dr Samuelson', tag: 'Migrant clinic physician, Skagit Valley', pages: 'pp. 128–129, 140', points: ['Sees young workers with “the arthritis of a seventy-year-old” (p. 128).', 'Explains that fear of pain is read as faking pain in workers’ compensation tests (pp. 140–41).'], quote: '“I see an awful lot of people just wearing out.” (p. 128)' },
+{ id: 'nurse', g: 'clinic', name: 'The San Miguel nurse', tag: 'Rotated from Oaxaca City', pages: 'pp. 146–150', points: ['Uses a malnutrition index designed for a middle-class mestizo population (p. 147).', 'Locks the clinic during opening hours to do paperwork (p. 147).', 'Is later asked to leave “because she took too much vacation” (p. 150).'], quote: '“Why would I want a friendship with an indigenous person?” (p. 148)' },
+{ id: 'jr', g: 'valley', name: 'J. R. and Janet', tag: 'White residents of Central California', pages: 'pp. 158–167', points: ['J. R. came to California as a poor “Okie” picking grapes in the 1940s (p. 158).', 'Blame “staying Mex” on welfare, which none of Holmes’ companions received (p. 159).', 'J. R.: “There are no barriers. Nothing holds you back except for you” (p. 167).'], quote: '“Why don’t you start dressing like an American?!” Janet (p. 159)' },
+{ id: 'holmes', g: 'valley', name: 'Seth M. Holmes', tag: 'The ethnographer: anthropologist and physician', pages: 'pp. xix, 3, 32–39', points: ['An MD/PhD student who picked berries, lived in the camps and crossed the border (pp. 3–7).', 'Introduced in the camp as “Doctor Seth” and suspected of being a CIA agent or drug smuggler (pp. 32, 38).', 'Changed by fieldwork: “A body cannot live the reality of another category of people without being changed” (p. 39).'], quote: 'A “tall, white, bald visitor from the North” (p. xix).' }
+];
+
+d.excerpts = [
+{ id: 'cross', title: 'Crossing and caught', pages: 'pp. 18–24', where: 'Chapter 1', color: '#B3263E',
+summary: 'The group runs under barbed-wire fences into Arizona, shares food in dry creek beds, and hides from a helicopter. Two Border Patrol agents find them. In jail Holmes is threatened with “alien smuggling” and fined; his companions are fingerprinted and deported while he cries on the phone to his lawyer.',
+why: 'The opening shows Holmes’ embodied method at its most extreme and sets up the central argument: migration is not a free choice.',
+anns: [['It feels like family, solidarity, almost like a communion ritual', 'p. 18', 'Sharing totopos and beans in the desert creates solidarity, almost religious in feeling, in a moment of danger.', 'Social relations'], ['I feel like a rabbit, vulnerable and hunted', 'p. 19', 'Holmes links the helicopter to Triqui hunters finding rabbits’ eyes with flashlights. The migrant body is prey.', 'Symbolism'], ['frames shape our perceptions of an entity', 'p. 21', 'Drawing on Judith Butler, Holmes questions the poster’s framing of migration as individual choice.', 'Belief and knowledge'], ['a process necessary to survive, to make life less risky', 'p. 21', 'His central reframing: staying in San Miguel is riskier than crossing.', 'Change'], ['Do you really think your thesis is worth breaking federal law?', 'p. 22', 'An ethical question about the method, asked by the agent in charge. Holmes lowers his gaze and says, “I guess not.”', 'Ethics'], ['As I cry on the phone, they are taken away', 'p. 24', 'Holmes, a US citizen, gets a lawyer and a fine; his companions are deported. The same act has very different consequences.', 'Power']],
+concepts: ['Power', 'Identity', 'Belief and knowledge'], method: 'Participant observation at the limit: crossing the border illegally, with prior legal advice.', question: 'Was it ethical for Holmes to cross the border with his informants? Who carried the risks?' },
+{ id: 'body', title: 'My body offered field notes', pages: 'pp. 34–37', where: 'Chapter 2', color: '#2F6B3A',
+summary: 'Holmes lists what his body learned: cold rain down his neck, sore knees, an acidic stomach before picking. He contrasts his need to sleep in a closet with his companions’ preference for a mattress, explains habitus, and describes how his white body was treated as deserving power, from Burger King to the police.',
+why: 'The key methods passage: it shows embodied anthropology and Bourdieu’s habitus, and reveals Holmes’ positionality.',
+anns: [['the back of my neck as cold rain seeped down', 'p. 34', 'Data gathered not just by eyes and ears but by the whole body: “sensuous scholarship” in practice.', 'Materiality'], ['my body offered important field notes on social suffering', 'p. 35', 'His methodological claim: without attending to his body he would have “missed out on much of the valuable data”.', 'Methods'], ['accreted (sequentially layered) over a lifetime', 'p. 35', 'Bourdieu’s habitus explains why Holmes needed privacy while his companions valued space and a mattress.', 'Culture'], ['My body was treated as though it had and deserved power', 'p. 36', 'At Burger King the gabacho gets the right fries. The same body that picks berries is read as powerful.', 'Power'], ['Driving While Brown', 'p. 37', 'Racial-citizenship profiling: any small car fault could lead to deportation.', 'Identity'], ['A body cannot live the reality of another category of people without being changed', 'p. 39', 'Fieldwork changed Holmes, and created expectations of solidarity and advocacy.', 'Change']],
+concepts: ['Identity', 'Power', 'Culture'], method: 'Embodied participant observation and reflexive writing.', question: 'Can Holmes really “experience how the poor suffer” when he can always leave?' },
+{ id: 'bottom', title: 'The bottom of the hierarchy', pages: 'pp. 72–78', where: 'Chapter 3', color: '#D9A21B',
+summary: 'Holmes compares the white teen crew, who pick at their own pace, with the Mexican crew, who must pick a minimum or be fired and evicted. Marcelina tells a seminar about stolen pounds and the son she has not seen in four years. A Seattle commuter is moved to the processing plant; camp residents can only pick.',
+why: 'This is the heart of the farm hierarchy, showing how labour, housing, language and ethnicity reinforce each other.',
+anns: [['Pickers are the only group not paid by the hour', 'p. 72', 'Piece rates shift the risks of small berries and bad weather onto the pickers.', 'Power'], ['fifty-one pounds of deleafed strawberries every hour', 'p. 73', 'The minimum needed at 14 cents a pound to reach the state minimum wage.', 'Materiality'], ['perros (dogs), burros, Oaxacos', 'p. 73', 'The insults of some crew bosses: animal names for kneeling workers.', 'Symbolism'], ['It honestly felt like pure torture', 'p. 74', 'Holmes’ own fieldnote after picking: embodied data on the work.', 'Methods'], ['I have been here four years without seeing my son', 'p. 76', 'Marcelina’s testimony: migration splits families across the border.', 'Social relations'], ['Thus marginalization begets marginalization', 'p. 78', 'Living in the camps leads to the worst jobs, which keeps people in the camps.', 'Society']],
+concepts: ['Society', 'Power', 'Social relations'], method: 'Picking alongside workers, interviews and a public testimony.', question: 'Draw the feedback loop on p. 78. Which link would be easiest to break?' },
+{ id: 'headache', title: 'Crescencio’s headache', pages: 'pp. 97–98, 133–35', where: 'Chapters 4 and 5', color: '#2E5A87',
+summary: 'Crescencio asks Holmes for headache medicine. The pain comes when supervisors insult him, and only heavy drinking stops it. At the migrant clinic a doctor decides he is a perpetrator of domestic violence with “issues” with authority and refers him to therapy he does not understand.',
+why: 'One case shows symbolic violence becoming sickness, and the clinic unintentionally reinforcing it.',
+anns: [['a debilitating headache for almost seven years', 'p. 97', 'The headache began about when he started migrating for work.', 'Change'], ['being called “stupid Oaxacan”', 'p. 97', 'The trigger is racist insult: symbolic violence felt in the body.', 'Identity'], ['drinking twenty to twenty-four beers', 'p. 98', 'His only effective remedy, which then fits the stereotype of the drunken migrant.', 'Belief and knowledge'], ['involuntarily embodying the stereotype', 'p. 98', 'The loop: insult → headache → drinking and anger → stereotype → more insult.', 'Power'], ['really he is the perpetrator', 'p. 133', 'The doctor’s reading. Short of time, she locates the problem in his psychology.', 'Belief and knowledge'], ['inadvertently complicit with the social determinants of suffering', 'p. 135', 'Therapy to accept poor treatment may help him cope, but also supports the hierarchy.', 'Society']],
+concepts: ['Power', 'Belief and knowledge', 'Identity'], method: 'Informal clinical conversation, then follow-up with the clinician.', question: 'What would “structural competency” (p. 153) have looked like in Crescencio’s case?' },
+{ id: 'ground', title: '“Because they’re lower to the ground”', pages: 'pp. 170–74', where: 'Chapter 6', color: '#7A5230',
+summary: 'Asked why Triqui people only pick berries, a social worker, a Mixtec crew boss and a crop manager all point to bodies: they like working bent over, they are brutes, they are short. The pickers themselves say pesticides only harm delicate white bodies. Holmes calls this naturalisation and internalisation.',
+why: 'The book’s title idea: inequality is hidden because it is made to look natural, written on the body.',
+anns: [['Oaxacans like to work bent over', 'p. 170', 'A social worker’s explanation: preference replaces structure.', 'Belief and knowledge'], ['because they’re lower to the ground', 'p. 171', 'Scott’s claim, contradicted when a crew boss says her fastest picker is Triqui.', 'Symbolism'], ['built lower to the ground so it’s easier for them to stoop', 'p. 171', 'A US Senator said the same in the 1960s: the idea has a history.', 'Change'], ['Pesticides affect only white Americans', 'p. 173', 'Triqui pickers explain risk through bodily difference.', 'Identity'], ['We Triquis are strong and aguantamos', 'p. 173', 'Ethnic pride in endurance that “ironically aids in the naturalization” of oppression (p. 174).', 'Culture'], ['Like animals, these workers are seen “on all fours.”', 'p. 174', 'Body position maps onto a hierarchy of humanness: sitting, standing, kneeling.', 'Power']],
+concepts: ['Belief and knowledge', 'Identity', 'Symbolism'], method: 'Asking the same question of people at different levels of the hierarchy.', question: 'Is the pickers’ pride a form of resistance or of internalised oppression?' }
+];
+
+d.explanations = [
+['1', 'Structural violence', 'Global trade (NAFTA), immigration law and labour law push Triqui people north and into the worst jobs (pp. 25, 41, 102).', '#B3263E'],
+['2', 'Hierarchy on the farm', 'An ethnicity–citizenship ladder sorts bodies into jobs, housing and respect (pp. 50, 84–85).', '#D9A21B'],
+['3', 'Embodied suffering', 'The hierarchy becomes pain and sickness, “roughly cumulative from top to bottom” (p. 95).', '#2F6B3A'],
+['4', 'The clinical gaze', 'Clinics locate the problem in patients’ bodies, behaviour or culture (pp. 152–53).', '#2E5A87'],
+['5', 'Symbolic violence', 'Everyone, including the pickers, comes to see the order as natural and deserved (pp. 156–57, 181).', '#7A5230']
+];
+d.cases = {
+abelino: { label: 'Abelino’s knee', situation: 'Abelino injures his knee picking strawberries and works through months of clinics and workers’ compensation (pp. 93–94, 117–24).', structure: 'Excluded “by both international market inequalities and local discriminatory practices from all but one narrow and particularly traumatic labor position” (p. 94).', natural: 'A doctor charts that he “twisted his right knee” and later says he was “picking incorrectly … because he did not know how to bend over” (pp. 118, 120).' },
+crescencio: { label: 'Crescencio’s headache', situation: 'Insults on the job bring on headaches that only heavy drinking relieves (pp. 97–98).', structure: 'Most distally, “international economic inequalities forcing him to migrate”; more proximally, “racialized mistreatment” in the farm hierarchy (p. 135).', natural: 'The clinic treats his “issues” with authority, and therapy may “promote the patient’s acceptance of his place in a labor hierarchy” (pp. 134–35).' },
+bernardo: { label: 'Bernardo’s stomach', situation: 'Years of stomach pain after being beaten by soldiers, then a lifetime of migrant work (pp. 105–7).', structure: 'Neoliberal capitalism deepens poverty; US-funded military repression targets indigenous movements (p. 107).', natural: 'Charted as “an old boxer”; a Oaxacan doctor blames “too much hot chili” and bending in sleep (pp. 142–43).' },
+strike: { label: 'The strike', situation: 'Pickers walk out, whistling, when pay per pound is cut and workers are fired (p. 177).', structure: 'Growers’ “real anxieties over farm survival” stop them addressing pay in a lasting way (p. 180).', natural: 'The signed contrato becomes a “memo”; next summer the lunch breaks and higher pay are “silently rescinded” (pp. 179–80).' }
+};
+d.concepts = [
+{ id: 'belief', name: 'Belief and knowledge', def: 'The systems of ideas and expertise people use to understand the world, and whose knowledge counts as true.', inPM: [['Clinicians trust the MRI over Abelino’s words; “Subjective” and “Objective” sections become “a permanent record of the clinical gaze”.', 'p. 123'], ['“Los médicos no saben nada”: Triqui patients judge biomedicine by its results.', 'pp. 113, 124'], ['A Triqui healer lures a spirit from Abelino’s knee with rum-covered eggs.', 'pp. 118–19'], ['The rumour that Pepsi is made with human blood, read as a critique of corporations.', 'p. 177']], apply: ['Whose knowledge counts in the clinic?', 'How do beliefs about bodies justify the hierarchy?', 'How does “cultural competency” treat patients’ beliefs (p. 153)?'], nuance: 'Holmes read the soda rumour with a “hermeneutic of generosity” (p. 177): beliefs that look irrational can contain real critique.', plan: ['Define belief and knowledge.', 'Example: the clinical gaze and the MRI (pp. 120–24).', 'Example: naturalising beliefs about bodies (pp. 170–74).', 'Evaluate: Triqui healers and rumours as alternative knowledge (pp. 118, 177).'] },
+{ id: 'change', name: 'Change', def: 'Transformation over time in societies, practices and ideas, and the forces that drive or block it.', inPM: [['NAFTA erased tariffs on corn while US subsidies rose: “an inverse tariff against Mexican corn”.', 'p. 25'], ['Triqui migration to Washington began only in the late 1980s and early 1990s.', 'p. 42'], ['Since border militarisation migrants stay several years at a time.', 'p. 42'], ['The strike won lunch breaks and higher pay, “silently rescinded” the next summer.', 'pp. 179–80']], apply: ['What forces push change, and what pushes back?', 'How can habitus change (p. 184)?', 'Which of Holmes’ calls for change is most likely to work?'], nuance: 'Bourdieu is often read as a theorist of reproduction, but Holmes finds “room for hope” in a “feed-forward loop of transformation” (p. 184).', plan: ['Define change.', 'Example: NAFTA and migration (pp. 25, 41).', 'Example: the strike and its reversal (pp. 177–80).', 'Evaluate: social reproduction versus change (pp. 183–84).'] },
+{ id: 'culture', name: 'Culture', def: 'The shared, learned meanings and practices through which a group makes sense of the world.', inPM: [['Habitus: Holmes needs a closet for privacy; his companions prefer a mattress in a shared room.', 'pp. 35–36'], ['Bridewealth marriage is misread by clinicians and the media.', 'pp. 138–39'], ['The origin story of the impossibly heavy statue parallels Triqui displacement.', 'pp. 107–8'], ['Clinicians blame “culture and customs” instead of poverty.', 'pp. 146, 153']], apply: ['When is “culture” used to explain away structural problems?', 'How do Triqui practices change through migration (p. 186)?', 'Is culture fixed or hybrid?'], nuance: 'Holmes criticises cultural competency training that treats “the culture of the patient” as “the problem” (p. 153).', plan: ['Define culture.', 'Example: habitus in fieldwork (pp. 35–36).', 'Example: bridewealth and its misreading (pp. 138–39).', 'Evaluate: culture used to blame (pp. 146, 153).'] },
+{ id: 'identity', name: 'Identity', def: 'How people understand who they are and how others classify them.', inPM: [['Managers, crew bosses and residents classify workers as “Mexican”, “Oaxacan”, Mixtec or Triqui depending on how close they are.', 'pp. 84–85, 161–62'], ['Ethnicity is “a somatic and social category”, not a genetic given.', 'p. 28'], ['Triqui pride in endurance: “We Triquis are strong and aguantamos”.', 'p. 173'], ['“Being is being perceived” (Bourdieu).', 'p. 136']], apply: ['How do others’ perceptions shape identity?', 'Is Triqui pride a strength or a trap?', 'How does Holmes’ own identity shape his data?'], nuance: '“Perceptions of ethnicity change as the zoom lens is moved in and out” (p. 84).', plan: ['Define identity.', 'Example: ethnic classification on the farm (pp. 84–85).', 'Example: internalised pride (pp. 173–74).', 'Evaluate: identity as perceived and changing (p. 136).'] },
+{ id: 'materiality', name: 'Materiality', def: 'The physical things, spaces and bodies through which social life is lived.', inPM: [['Plywood shacks with tin roofs, no heat or insulation; frost melts as “cold indoor rain”.', 'pp. 47–49, 121'], ['Pesticide residue dissolves in strawberry juice on pickers’ hands.', 'p. 172'], ['Mayonnaise jars to hide money in the desert.', 'p. 15'], ['Berries sold to Häagen-Dazs; the Northwest variety is “red throughout”.', 'pp. 49–50']], apply: ['How do spaces express the hierarchy?', 'What do objects reveal about inequality?', 'How is the body itself material evidence?'], nuance: 'Dirt is material, but Holmes shows it becomes “symbolically linked with their character” (p. 68).', plan: ['Define materiality.', 'Example: housing in the labour camps (pp. 47–49).', 'Example: pesticides and the body (pp. 172–73).', 'Evaluate: material dirt and symbolic meaning (pp. 68, 163).'] },
+{ id: 'power', name: 'Power', def: 'The ability to shape the actions, conditions and beliefs of others.', inPM: [['Checkers mark fewer pounds than the scale shows.', 'pp. 69–70'], ['Undocumented pickers stay silent: “they point to the police”.', 'p. 77'], ['Holmes’ white body gets the right fries at Burger King.', 'p. 36'], ['US-funded “blue soldiers” beat Bernardo.', 'pp. 106–7']], apply: ['Where does power come from on the farm?', 'How is power hidden (symbolic violence)?', 'Who resists, and how?'], nuance: 'Holmes stresses that the hierarchy “is neither willed nor planned by the farm executives” (p. 31): power is structural, not only personal.', plan: ['Define power with Bourdieu and Foucault.', 'Example: the farm hierarchy (pp. 50–51, 84).', 'Example: the clinical gaze (pp. 114–16).', 'Evaluate: resistance in the strike (pp. 177–80).'] },
+{ id: 'social', name: 'Social relations', def: 'The patterned relationships between people, such as kinship, friendship, work and hierarchy.', inPM: [['Gift exchange: Holmes carries food, birth certificates and cash across borders for families.', 'p. 38'], ['Nineteen people share a three-bedroom apartment in Madera.', 'pp. 6, 81'], ['Coyotes from home villages bring “more trust and safety”.', 'p. 11'], ['White teenage checkers talk over pickers “as though the picker were not present”.', 'p. 170']], apply: ['How are relations shaped by hierarchy?', 'How do kin networks support migration?', 'How did Holmes’ relations change his research?'], nuance: 'Friendship brought obligations: “regular calls from across the country asking for help” (p. 38).', plan: ['Define social relations.', 'Example: kin networks and housing (pp. 6, 81).', 'Example: segregation on the farm (pp. 69–70, 170).', 'Evaluate: the anthropologist’s own relations (pp. 38–39).'] },
+{ id: 'society', name: 'Society', def: 'A group of people sharing institutions, rules and a social order over time.', inPM: [['Labour law excludes farmworkers from overtime, collective bargaining and workers’ compensation.', 'p. 102'], ['Proposition 187 and Arizona’s 2004 act deny services to the undocumented.', 'pp. 40–41'], ['The US “externalizes the costs of labor force renewal”.', 'pp. 12–13'], ['Migrant bodies are hidden from public view.', 'pp. 155–56']], apply: ['What does it mean to belong to a society you work in but cannot join?', 'How do laws structure the farm?', 'Which society does a Triqui migrant belong to?'], nuance: 'The Triqui see the whole circuit from San Miguel to Washington as one “spatially extended community” (p. 160).', plan: ['Define society.', 'Example: labour and immigration law (pp. 40–41, 102).', 'Example: externalised costs (pp. 12–13).', 'Evaluate: transnational belonging (p. 160).'] },
+{ id: 'symbolism', name: 'Symbolism', def: 'The meanings attached to objects, actions, words and bodies.', inPM: [['Body position: desk jobs are linked to the mind, kneeling workers seen “on all fours”.', 'p. 174'], ['Dirt as “matter out of place” (Mary Douglas).', 'p. 163'], ['Words: “illegal alien”, “unskilled”, “dialect”.', 'pp. 185–89'], ['The contrato signed by Triqui legal tradition, filed as a “memo”.', 'p. 179']], apply: ['How do words shape treatment?', 'What does the title itself symbolise?', 'How do symbols support or resist the hierarchy?'], nuance: 'Gramsci’s “war of position” means struggling over meanings, but Holmes adds that critique “must be accompanied by other forms of solidarity” (p. 190).', plan: ['Define symbolism (Douglas, Geertz).', 'Example: body position and hierarchy (p. 174).', 'Example: dirt and exclusion (p. 163).', 'Evaluate: changing words as change (pp. 185–90).'] }
+];
+
+d.lenses = [
+{ id: 'marx', name: 'Marxist political economy', figures: 'Karl Marx · Michael Burawoy · Antonio Gramsci', core: 'Capitalism extracts value from labour. Migrant labour systems separate the reproduction of workers (in Mexico) from production (in the US), so the host state “externalizes the costs” (pp. 12–13).', inFF: ['Bourgois’ foreword calls NAFTA’s effects “a contemporary form of primitive accumulation” (p. xiv).', '“Conjugated oppression”: class and ethnicity together (p. 50).', 'Gramsci’s hegemony and “war of position” over meanings (p. 189).'], strength: 'Explains why cheap labour is needed and why pickers stay powerless.', limit: 'Holmes shows growers are squeezed too: “many of the most powerful inputs … are structural, not willed by individual agents” (p. 52).', question: 'Who profits from the Triqui pickers’ labour?' },
+{ id: 'world', name: 'World-systems and dependency theory', figures: 'Immanuel Wallerstein (lens from class materials)', core: 'The world economy has a core, semi-periphery and periphery; the core gains from cheap labour and resources in the periphery.', inFF: ['US corn subsidies undercut Oaxacan farmers (p. 25).', 'Wages rise with distance from San Miguel, up to the US (p. 161).', 'The farm competes with China, Chile and Poland (pp. 55, 59–60).'], strength: 'Places Triqui migration in a global system.', limit: 'Overlooks agency: Triqui families choose goals such as building houses or paying bridewealth (p. 161).', question: 'Is the Tanaka farm core or periphery in the global berry market?' },
+{ id: 'appadurai', name: 'Appadurai’s global cultural flows', figures: 'Arjun Appadurai (lens from class materials)', core: 'Globalisation is made of uneven, disjunctive flows (“scapes”) of people, media, money, technology and ideas.', inFF: ['TV depicts wealthy lifestyles in San Miguel homes (p. 36).', 'Remittances build houses with gas stoves and concrete floors (p. 186).', 'Pepsi trucks and rumours of human blood (p. 177).'], strength: 'Captures flows of ideas and images as well as money.', limit: 'Says less about power and inequality than Holmes does.', question: 'Which “scapes” meet in San Miguel?' },
+{ id: 'practice', name: 'Practice theory (Bourdieu)', figures: 'Pierre Bourdieu · habitus · symbolic violence · capital', core: 'Habitus is “bodily comportments, dispositions, tastes, and desires accreted … over a lifetime” (p. 35). Symbolic violence makes inequality seem natural to dominant and dominated alike (pp. 44, 156–57).', inFF: ['Holmes’ social and cultural capital gets him special treatment (p. 79).', 'Doxa, habitus and illusio: “being is a being-perceived” (p. 157).', 'Triqui pride in endurance (pp. 173–74).'], strength: 'Holmes’ main lens: explains why the hierarchy goes unquestioned.', limit: 'Can seem to leave no room for change; Holmes argues it does (pp. 183–84).', question: 'How do Triqui pickers come to see their position as natural?' },
+{ id: 'cma', name: 'Critical medical anthropology', figures: 'Paul Farmer · Nancy Scheper-Hughes · Philippe Bourgois', core: 'Health is shaped by political and economic structures. Violence is a continuum: structural, symbolic, political and everyday (pp. 89–90).', inFF: ['Abelino, Crescencio and Bernardo embody different forms of violence (p. 90).', '“Structural vulnerability” at every level of the farm (p. 83).', 'Liberation medicine and structural competency (pp. 153, 194).'], strength: 'Links bodies to global structures and calls for action.', limit: 'Can underplay how people resist creatively (slides); Holmes includes the strike and rumours (pp. 176–80).', question: 'Why is Bernardo’s stomach pain political?' },
+{ id: 'foucault', name: 'Poststructuralist theory', figures: 'Michel Foucault · the clinical gaze · biopower', core: 'Modern medicine replaced “What is the matter with you?” with “Where does it hurt?”, treating patients as bodies (pp. 114–15).', inFF: ['The MRI trumps Abelino’s words (pp. 123–24).', 'A San Miguel clinic map of every family’s illnesses: “surveillance biopower” (p. 145).', 'Ferguson’s “anti-politics machine”: biomedicine depoliticises suffering (p. 152).'], strength: 'Explains how knowledge and power work through the clinic.', limit: 'Holmes adds that clinicians are victims of structures too: rushed, underfunded, overworked (p. 125).', question: 'How does the medical chart become a tool of power?' },
+{ id: 'symbolic', name: 'Symbolic and interpretive anthropology', figures: 'Mary Douglas · Clifford Geertz · Mary Weismantel', core: 'Culture is a system of meanings to be interpreted. Dirt is “matter out of place” (Douglas, p. 163).', inFF: ['“Cleaning up the neighborhood” displaces Mexicans (p. 163).', 'Race “accumulates within the body” (Weismantel, p. 165).', 'The impossibly heavy statue (pp. 107–8).'], strength: 'Shows how meanings of dirt, race and body position exclude.', limit: 'Interpretation alone cannot explain the economics that place people in the dirt.', question: 'Why are pickers called “dirty”?' }
+];
+
+d.methods = [
+['Participant observation', 'Living in a labour camp shack, picking berries once or twice a week, migrating to California, living in San Miguel (pp. 3–7, 74).', 'Rich, embodied data; but Holmes could never pick the minimum and was treated as out of place (p. 79).'],
+['Embodied anthropology', 'Using his own body as a source of field notes: knee and back pain, hunger, fear (pp. 34–35).', 'Shows suffering from the inside; but his body was white, citizen and free to leave.'],
+['Multi-sited fieldwork', '“Follow the people” across Oaxaca, Arizona, California and Washington (George Marcus, p. 3).', 'Captures the whole circuit; but less depth in each place.'],
+['Interviews and recordings', 'Tape-recorded conversations with pickers, managers, clinicians, Border Patrol agents and residents (pp. 3, 6, 27).', 'Voices from every level; but some racist crew bosses refused interviews (p. 67).'],
+['Documents', 'Media accounts of migration and migrants’ clinical charts (p. 3).', 'Reveal the clinical gaze in writing (pp. 118, 142); but raise confidentiality questions.'],
+['“Studying up”', 'A “vertical slice” of every level of the hierarchy, following Laura Nader (p. 29).', 'Avoids blaming individuals; but access to elites depended on church connections (p. 53).']
+];
+d.ethics = [
+{ id: 'access', name: 'Access and gatekeepers', def: 'Who lets the researcher in, and what that obliges them to.', pm: ['A childhood neighbour, now a pastor, introduced Holmes to the farm president at church (pp. 5, 53).', 'The farm gave permission to live in the camps and interview employees (p. xx).', 'In San Miguel he was met with “cold silence” and later accused of being a spy (pp. 4, 6).'], critical: 'Entry through the farm’s owner could make pickers see him as management. Holmes notes pickers suspected him of being a CIA agent or drug smuggler (p. 38).' },
+{ id: 'legal', name: 'Legality and risk', def: 'Whether the researcher may break the law, and who bears the risk.', pm: ['He consulted immigration lawyers before crossing (p. 9).', 'He was fined $5,000; his companions were deported (pp. 24, 27).', 'Some companions blamed him “for bringing bad luck” (p. 27).'], critical: 'The same act carried very different risks for a US citizen and for undocumented migrants: a key P1 discussion point.' },
+{ id: 'anon', name: 'Anonymity', def: 'Protecting participants’ identities.', pm: ['“I have altered names and personal information to protect privacy” (p. xix).', 'Names and some places are changed (pp. 27–28).'], critical: 'Photographs of informants appear in the book. Can a small community still recognise people?' },
+{ id: 'power', name: 'Power and positionality', def: 'How the researcher’s identity shapes relationships and data.', pm: ['Introduced as “Doctor Seth” (p. 32).', 'Supervisors picked berries into his bucket to help him (p. 36).', 'Executives asked him for advice (p. 79).'], critical: 'His privilege gave access to managers and better treatment in clinics, which is itself data about the hierarchy.' },
+{ id: 'recip', name: 'Reciprocity', def: 'What the researcher gives back.', pm: ['Carrying food, documents and money across borders (p. 38).', 'Advocacy in clinics and with workers’ compensation (pp. 39, 120).', 'Donating all royalties to farmworker organisations (background: author’s website).'], critical: 'Gifts and advocacy build trust, but can also create dependency and expectations (p. 38).' },
+{ id: 'rep', name: 'Representation', def: 'How participants are portrayed to the public.', pm: ['Holmes worries about the critiques of the “culture of poverty” (p. 28).', 'He aims to portray marginalised people “as full human beings” (p. 28).', 'He critiques terms like “illegal alien” and “unskilled” (pp. 187–88).'], critical: 'Describing Triqui violence or drinking risks reinforcing stereotypes; Holmes explains them structurally.' }
+];
+
+d.iscs = [
+{ id: 'labour', name: 'Labour', def: 'Work, and how it is organised, paid and valued.', pm: ['Piece rates of 14 cents a pound (p. 73).', 'Picking called “unskilled”, though Holmes could never match the Triqui pickers (p. 187).', 'Executives “work with the mind”, pickers with the body (pp. 66, 174).'] },
+{ id: 'production', name: 'Production', def: 'How goods are made and who controls the process.', pm: ['A vertically integrated farm, from nursery to processing plant (p. 49).', 'Organic fields switched to “machine pick” (p. 191).'] },
+{ id: 'commodity', name: 'Commodity', def: 'Something produced to be bought and sold.', pm: ['The Northwest strawberry for Häagen-Dazs versus the “rock hard” Camarosa (p. 59).', 'Labour itself sold by the pound (p. 73).'] },
+{ id: 'exchange', name: 'Exchange', def: 'The transfer of goods, money and services, including gifts.', pm: ['Gift exchange with the anthropologist (p. 38).', 'Bridewealth of about $1,500–$2,500 (p. 138).', 'Cooperar: paying one’s share (p. 14).'] },
+{ id: 'consumption', name: 'Consumption', def: 'The use of goods, and what it means socially.', pm: ['The last hands to touch your berries (p. 43).', 'Pepsi replacing local Rey soda (p. 177).', 'Burger King on payday (p. 36).'] },
+{ id: 'globalization', name: 'Globalisation', def: 'Growing connections of trade, people and ideas across borders.', pm: ['NAFTA and US corn (p. 25).', 'Strawberries competing with China and Chile (pp. 55, 59–60).'] },
+{ id: 'capitalism', name: 'Capitalism', def: 'An economic system based on private ownership and profit.', pm: ['“Neoliberal corporate capitalism” deepens poverty in southern Mexico (p. 107).', 'Market pressure squeezes even ethical growers (p. 52).'] },
+{ id: 'colonialism', name: 'Colonialism', def: 'Domination of one people by another, and its lasting effects.', pm: ['Spanish conquest and “closed corporate communities” (p. 5).', 'A history of domination by conquerors, missionaries and politicians (p. 43).'] }
+];
+d.aoiCards = [
+['Labour as a commodity', 'Pickers sell their bodies’ labour by the pound; bodies “ache, decay, and are injured” (p. 30).', '#B3263E'],
+['Externalised costs', 'Mexico pays for raising, educating and caring for workers; the US pays only while they work (pp. 12–13).', '#2F6B3A'],
+['The value chain', 'From corn in Oaxaca to Häagen-Dazs: who gains at each link (pp. 25, 49, 59–60)?', '#2E5A87'],
+['Ethical consumption', 'Holmes calls for fair trade labels and buying from farms that treat workers fairly (p. 196).', '#D9A21B'],
+['Remittances', 'Houses with concrete floors built by money sent home (p. 186).', '#7A5230'],
+['Gifts and reciprocity', 'Trust built through gift exchange and cooperation (pp. 14, 38).', '#2F6B3A']
+];
+d.aoiQs = [
+'To what extent does globalisation create new forms of labour exploitation?',
+'Discuss how relations of production shape social hierarchies in two societies you have studied.',
+'Compare and contrast the relationship between labour and identity in two societies you have studied.',
+'“Consumption hides the conditions of production.” Discuss.'
+];
+d.links = [
+{ id: 'pm', title: 'Pretty Modern', short: 'Edmonds', author: 'Alexander Edmonds', year: '2010', best: 'Best for: inequality, medicine, the body', color: '#B3263E',
+place: 'Plastic surgery patients, surgeons and media figures in Rio de Janeiro, Brazil, from socialites to favela residents.',
+focus: 'Why cosmetic surgery spread across classes in Brazil, and what beauty means for people on the margins.',
+sim: [
+{ h: 'Medicine individualises social suffering', ff: 'The clinical gaze locates sickness in patients’ bodies, behaviour or culture (pp. 152–53).', other: 'Plástica “locates suffering in an ego” treated apart from “the larger political and social field” (Pretty Modern, p. 103).' },
+{ h: 'Poor bodies in public hospitals', ff: 'Migrant clinics are underfunded and rushed; patients wait and are disbelieved (pp. 125, 128–30).', other: 'Poor patients become training material for residents in public hospitals (Pretty Modern, pp. 92–93).' },
+{ h: 'Racial hierarchies read on bodies', ff: 'Triqui workers are seen as “more purely indigenous” and “simple” (p. 84).', other: 'Boa aparência is a euphemism for a whitish appearance (Pretty Modern, pp. 45, 109).' }
+],
+diff: [
+{ h: 'Broken versus enhanced bodies', ff: 'Bodies are worn down by kneeling labour (pp. 30, 94).', other: 'Poor patients seek surgery to improve their bodies and chances.' },
+{ h: 'Agency', ff: 'Triqui migration is “anything but voluntary” (p. 17).', other: 'Edmonds sees beauty as a “tactic” of the weak (Pretty Modern, p. 20).' },
+{ h: 'Method', ff: 'Holmes picks berries and crosses the border himself (pp. 18, 74).', other: 'Edmonds observes consultations and interviews patients.' }
+],
+concepts: ['Power', 'Society', 'Belief and knowledge'], debate: 'Is surgery in a Brazilian public hospital more or less a free choice than picking berries in Washington?' },
+{ id: 'scheper', title: 'Parts Unknown', short: 'Scheper-Hughes', author: 'Nancy Scheper-Hughes', year: '2004', best: 'Best for: commodified bodies, covert methods', color: '#2E5A87',
+place: 'Kidney sellers, brokers and surgeons across several countries, researched partly undercover.',
+focus: 'The global trade in organs from the poor to the rich.',
+sim: [
+{ h: 'Poor bodies supply the rich', ff: 'Pickers’ bodies are used up to produce fruit for distant consumers (pp. 30, 43).', other: 'Poor sellers supply kidneys to wealthier patients.' },
+{ h: 'Global inequality written on bodies', ff: 'NAFTA and US subsidies push Triqui farmers north (p. 25).', other: 'The organ trade follows lines of global inequality.' },
+{ h: 'A shared intellectual line', ff: 'Holmes draws on Scheper-Hughes: the violence continuum, “collective bad faith” and the “rebel body” (pp. 87, 89, 193).', other: 'Scheper-Hughes calls for a morally engaged anthropology.' }
+],
+diff: [
+{ h: 'Covert versus open', ff: 'Holmes worked openly, explaining himself as a student (pp. 22, 32).', other: 'Undercover research, at times posing as a buyer.' },
+{ h: 'Selling labour or parts', ff: 'Workers sell their labour, and the damage builds slowly (p. 95).', other: 'Sellers lose a body part at once.' },
+{ h: 'Advocacy', ff: 'Pragmatic solidarity on the farm and in clinics (pp. 190–92).', other: 'Campaigning against the trade through Organs Watch.' }
+],
+concepts: ['Materiality', 'Power', 'Change'], debate: 'Holmes broke the law openly; Scheper-Hughes worked undercover. Which is easier to justify?' },
+{ id: 'demello', title: 'The Convict Body', short: 'DeMello', author: 'Margo DeMello', year: '1993', best: 'Best for: bodies, stigma, institutions', color: '#7A5230',
+place: 'Male prisoners in the United States and the tattoos made inside prison.',
+focus: 'How prison tattoos express identity and defiance, and how outsiders read them.',
+sim: [
+{ h: 'Class read through the body', ff: 'Pickers are seen as “dirty” because of where they work (pp. 67–68, 163).', other: 'Prison tattoos are stigmatised as low-class and criminal.' },
+{ h: 'Institutions that control bodies', ff: 'The Border Patrol jail and the farm’s rules control movement and time (pp. 23–24, 83).', other: 'The prison controls the body; tattooing reclaims it.' },
+{ h: 'Pride as response', ff: 'Triqui pride in endurance: aguantamos (p. 173).', other: 'Tattoos mark membership and toughness.' }
+],
+diff: [
+{ h: 'Chosen or imposed marks', ff: 'Pickers’ bodies are marked by labour they did not choose (p. 94).', other: 'Tattoos are chosen marks.' },
+{ h: 'Resistance or internalisation', ff: 'Pride “ironically aids in the naturalization” of oppression (p. 174).', other: 'Tattoos are usually read as defiance.' },
+{ h: 'Visibility', ff: 'Migrant bodies are hidden from public view (pp. 155–56).', other: 'Tattoos make the convict body visible.' }
+],
+concepts: ['Identity', 'Symbolism', 'Power'], debate: 'Is Triqui pride in endurance like a convict’s tattoo: a way of claiming the body?' },
+{ id: 'bailey', title: 'Butch Queens Up in Pumps', short: 'Bailey', author: 'Marlon M. Bailey', year: '2013', best: 'Best for: identity, kinship, insider research', color: '#2F6B3A',
+place: 'The Black LGBT ballroom scene in Detroit, where Bailey was a member.',
+focus: 'How a marginalised community builds houses (chosen families), gender categories and performance.',
+sim: [
+{ h: 'Kin networks for survival', ff: 'Extended Triqui families share shacks, cars and an apartment (pp. 6, 81).', other: 'Houses with “mothers” and “fathers” form chosen families.' },
+{ h: 'Classification by others', ff: 'Workers are sorted as “Mexican”, “Oaxacan” or Triqui depending on the viewer (pp. 161–62).', other: 'Ballroom builds its own categories against mainstream ones.' },
+{ h: 'Marginalised communities', ff: 'Triqui at “the bottom of many social hierarchies” (p. 43).', other: 'Black queer and trans people excluded by mainstream society.' }
+],
+diff: [
+{ h: 'Insider or outsider', ff: 'Holmes was a gabacho out of place in the hierarchy (pp. 32–33, 78–79).', other: 'Bailey writes as an insider.' },
+{ h: 'Economy or performance', ff: 'The focus is labour and the economy (ch. 3).', other: 'The focus is performance and identity.' },
+{ h: 'Creating norms', ff: 'Triqui people mostly accept the farm’s order (p. 180).', other: 'Ballroom creates alternative norms.' }
+],
+concepts: ['Identity', 'Social relations', 'Culture'], debate: 'Would an insider Triqui ethnographer have written a different book?' },
+{ id: 'goffman', title: 'On the Run', short: 'Goffman', author: 'Alice Goffman', year: '2014', best: 'Best for: state power, ethics, policing', color: '#D9A21B',
+place: 'A poor, mostly Black neighbourhood in Philadelphia, where Goffman lived for several years.',
+focus: 'How warrants, policing and surveillance shape daily life.',
+sim: [
+{ h: 'Living in fear of the state', ff: '“Driving While Brown”: any car fault could lead to deportation (p. 37).', other: 'Young men with warrants fear any contact with police.' },
+{ h: 'Avoiding hospitals and services', ff: 'Undocumented patients give false names for fear of the Border Patrol (p. 130).', other: 'Wanted men avoid hospitals, even for births.' },
+{ h: 'Deep immersion', ff: 'Holmes lived in the camp and crossed with his companions (pp. 5, 18).', other: 'Goffman lived in the neighbourhood for years.' }
+],
+diff: [
+{ h: 'The law the researcher broke', ff: 'Holmes crossed the border with legal advice and was fined (pp. 9, 24).', other: 'Goffman was criticised over how close she came to illegal activity.' },
+{ h: 'Migration and work', ff: 'Movement across borders for work (ch. 1–3).', other: 'Staying put under surveillance in one city.' },
+{ h: 'Medicine', ff: 'Holmes is a physician analysing the clinic (ch. 5).', other: 'Goffman is a sociologist.' }
+],
+concepts: ['Power', 'Society', 'Social relations'], debate: 'How far should an ethnographer share the risks of their participants?' }
+];
+
+d.baqs = [
+{ id: 'culture', q: 'What is culture?', color: '#2F6B3A', answer: 'Culture is learned and embodied, but Holmes warns against using it to explain away inequality.', ev: [['Habitus: privacy in a closet versus a shared mattress.', 'pp. 35–36'], ['Bridewealth marriage misread as “unwed pregnancy”.', 'pp. 138–39'], ['Clinicians blame “culture and customs” for poverty-related illness.', 'p. 146'], ['Migrants’ practices are “hybridized”, maintained and transformed.', 'p. 186']], complicate: 'Cultural competency training treats the patient’s culture as “the problem” (p. 153). Is culture a useful concept here, or a way to blame?', link: 'Pretty Modern: is beauty culture Brazilian or global?' },
+{ id: 'know', q: 'To what extent is it possible to know others?', color: '#2E5A87', answer: 'Holmes gets close by sharing bodily experience, but his body is always treated differently.', ev: [['“My body offered important field notes on social suffering.”', 'p. 35'], ['His white body gets the right fries at Burger King.', 'p. 36'], ['He never picks the minimum and is treated as “a sort of jester”.', 'p. 79'], ['“Right now we and you are the same; we are poor. But later you will be rich.” Samuel', 'p. 80']], complicate: 'Samuel’s joke about the indoor bathroom (p. 80) shows both sides know the difference remains.', link: 'Butch Queens Up in Pumps: an insider’s knowledge.' },
+{ id: 'person', q: 'What does it mean to be a person?', color: '#B3263E', answer: 'On the farm, personhood is ranked by body position: sitting, standing, kneeling.', ev: [['Kneeling workers seen “on all fours”, called perros and burros.', 'p. 174'], ['“Being is being perceived” (Bourdieu).', 'p. 136'], ['Shelly shoos Triqui women “as if to scare away an unwanted pack of dogs”.', 'p. 175'], ['Holmes wants readers to see migrants “as fellow humans”.', 'p. 29']], complicate: 'Triqui pride in strength (p. 173) claims dignity, but within the same terms of bodily difference.', link: 'The Convict Body: personhood claimed through the body.' },
+{ id: 'same', q: 'How are we the same and yet different from each other?', color: '#D9A21B', answer: 'Everyone on the farm suffers, but suffering is “roughly cumulative from top to bottom”.', ev: [['Executives worry about markets; pickers about the minimum weight.', 'p. 83'], ['White teen pickers have no minimum and take breaks.', 'p. 72'], ['Residents say they “know what it’s like” from one teen summer.', 'pp. 72, 87'], ['Everyone on the farm is “structurally vulnerable”.', 'p. 83']], complicate: 'The same job, picking, has very different meanings for a white teenager and a Triqui father (p. 72).', link: 'Pretty Modern: desire for beauty is shared, access is not.' },
+{ id: 'society', q: 'What does it mean to live in a society?', color: '#7A5230', answer: 'For the Triqui it means belonging to a transnational circuit while being excluded from the society they work in.', ev: [['A “spatially extended community” from San Miguel to Washington.', 'p. 160'], ['Excluded from overtime, bargaining and most workers’ compensation.', 'p. 102'], ['Migrant bodies are hidden from public view.', 'pp. 155–56'], ['“American society gains much from migrant laborers and gives little back.”', 'p. 197']], complicate: 'The Triqui want seasonal permission to work, not citizenship (pp. 160–61, 197).', link: 'On the Run: belonging under surveillance.' },
+{ id: 'matter', q: 'Why does anthropology matter?', color: '#2F6B3A', answer: 'Holmes shows that suffering others call natural is produced, and so can be changed.', ev: [['Ethnography captures the “vertical slices of power” in social life.', 'p. 185'], ['Structural competency for clinicians.', 'p. 153'], ['A call to “denaturalize social inequalities”.', 'p. 185'], ['Seminars bringing pickers, owners and Border Patrol together.', 'p. 197']], complicate: 'The strike’s gains were rescinded (p. 180). Can anthropology change structures, or only perceptions?', link: 'Parts Unknown: anthropology as activism.' }
+];
+
+d.reading = [
+{ name: 'More from Holmes', color: '#B3263E', items: [
+['Fresh Fruit, Broken Bodies, updated edition', 'University of California Press, 2023', 'Book', 'Adds a new preface and an epilogue on Triqui farmworkers organising for change.', 'https://www.ucpress.edu/books/fresh-fruit-broken-bodies/paper'],
+['An ethnographic study of the social context of migrant health in the United States', 'PLoS Medicine, 2006', 'Article', 'Holmes’ open-access article on the farm hierarchy and health, with his methods.', 'https://escholarship.org/uc/item/5f4787xz'],
+['The clinical gaze in the practice of migrant health', 'Social Science & Medicine, 2012', 'Article', 'The argument of chapter 5 as a journal article.', 'https://ideas.repec.org/a/eee/socmed/v74y2012i6p873-881.html'],
+['Seth M. Holmes: author website', 'sethmholmes.com', 'Profile', 'Translations, media and news about the book.', 'https://www.sethmholmes.com/fresh-fruit-broken-bodies']
+] },
+{ name: 'Watch and listen', color: '#2F6B3A', items: [
+['First Time Home', 'Film, 2021, 29 minutes', 'Film', 'Made by four Triqui cousins and produced by Holmes: a return to their family’s village in Oaxaca.', 'https://www.firsttimehomefilm.com/'],
+['Why picking your berries for $8,000 a year hurts a lot', 'NPR, The Salt, 2013', 'Article', 'Holmes interviewed about picking and pain.', 'https://www.kunc.org/npr-news/2013-08-09/why-picking-your-berries-for-8-000-a-year-hurts-a-lot'],
+['5 things one anthropologist learned while working as a migrant berry picker', 'KNKX, 2014', 'Article', 'Short radio feature from Washington State.', 'https://www.knkx.org/business/2014-05-21/5-things-one-anthropologist-learned-while-working-as-a-migrant-berry-picker-in-wash'],
+['Interview with Seth Holmes', 'Gastronomica, 2014', 'Interview', 'On food, NAFTA and structural competency.', 'https://gastronomica.org/2014/05/05/fresh-fruit-broken-bodies-interview-seth-holmes/'],
+['Rough passage: what it’s like to cross the border to harvest your food', 'Mother Jones, 2013', 'Interview', 'Holmes on access, the crossing and wages.', 'https://develop.motherjones.com/food/2013/10/rough-passage-what-its-cross-border-harvest-your-food/']
+] },
+{ name: 'Related ethnographies', color: '#2E5A87', items: [
+['The Land of Open Graves', 'Jason De León, 2015', 'Book', 'Death and migration in the Sonoran Desert, where Holmes crossed.', 'https://www.ucpress.edu/books/the-land-of-open-graves/paper'],
+['They Leave Their Kidneys in the Fields', 'Sarah Bronwen Horton, 2016', 'Book', 'Illness and labour among farmworkers in California.', 'https://www.ucpress.edu/flyer/books/they-leave-their-kidneys-in-the-fields/paper'],
+['Transborder Lives', 'Lynn Stephen, 2007', 'Book', 'Indigenous Oaxacans in Mexico, California and Oregon. Holmes cites Stephen on NAFTA (p. 204).', 'https://www.dukeupress.edu/transborder-lives'],
+['Righteous Dopefiend', 'Philippe Bourgois and Jeff Schonberg, 2009', 'Book', 'By the author of the foreword: suffering and structure among homeless addicts in San Francisco.', 'https://libcat.scu.edu/Record/b3300103']
+] }
+];
+
+this._d = d;
+return d;
+}
+
+segs(str) {
+if (!this._itRe) { this._itRe = new RegExp('(?<![\\p{L}])(' + ["A los Oaxaqueños les gusta trabajar agachados", "Trabajar con la mente en vez del cuerpo", "trabajar con la mente en vez del cuerpo", "Mi cuerpo ya no puede sentir nada", "Ya no corremos; no aguantamos", "Los médicos no saben nada", "los médicos no saben nada", "Ese médico no sabe nada", "Bruto para trabajar", "Altar está caliente", "bruto para trabajar", "Siempre me duelen", "Gabacho chakuh’", "Centro de Salud", "gabacho chakuh’", "salir adelante", "Tanto trabajar", "indio estúpido", "Indio estúpido", "tanto trabajar", "Salir adelante", "No, porque no", "Puro trabajo", "puro trabajo", "casa de lujo", "Casa de lujo", "Chingadazos", "sufrimiento", "Tortillería", "Presidencia", "Sufrimiento", "presidencia", "tortillería", "chingadazos", "Campesinos", "Campesinas", "Aguantamos", "campesinos", "aguantamos", "campesinas", "Oaxaqueños", "chilangos", "Mexicanos", "campesino", "Campesino", "Oaxaqueño", "Chilangos", "la migra", "Plástica", "El Norte", "aguantar", "Ranchito", "La migra", "Cooperar", "la línea", "Soldados", "ranchito", "contrato", "Contrato", "Aguantar", "caliente", "gabachos", "La línea", "Caliente", "Gabachos", "plástica", "cooperar", "soldados", "gabacho", "Gabacho", "tiendas", "Síndico", "Pasante", "Tiendas", "rateros", "pasante", "Totopos", "Norteño", "Oaxacos", "totopos", "síndico", "Raitero", "raitero", "Rateros", "norteño", "rancho", "pinche", "Sustos", "cabina", "Burros", "ratero", "Pinche", "Padrão", "sustos", "Perros", "burros", "Suerte", "padrão", "Rancho", "Ratero", "perros", "Cabina", "suerte", "tienda", "Tienda", "Oaxaco", "indio", "ganas", "Susto", "Ganas", "Migra", "Indio", "viejo", "migra", "Viejo", "susto", "jefe", "Jefe"].join('|') + ')(?![\\p{L}])', 'gu'); }
+const re = this._itRe; const out = []; let last = 0; let m;
+re.lastIndex = 0;
+while ((m = re.exec(str)) !== null) { if (m.index > last) out.push({ t: str.slice(last, m.index), st: '' }); out.push({ t: m[0], st: 'font-style:italic;' }); last = m.index + m[0].length; }
+if (last < str.length) out.push({ t: str.slice(last), st: '' });
+return out;
+}
+
+walk(v) {
+if (Array.isArray(v)) return v.map((x) => (typeof x === 'string' || typeof x === 'number') ? { t: x, s: this.segs(String(x)) } : this.walk(x));
+if (v && typeof v === 'object') { const o = {}; for (const k of Object.keys(v)) { const x = v[k]; o[k] = this.walk(x); if (typeof x === 'string' || typeof x === 'number') o[k + '_s'] = this.segs(String(x)); } return o; }
+return v;
+}
+
+renderVals() {
+const s = this.state;
+const d = this.data();
+const set = (o) => this.setState(o);
+const accents = ['#B3263E', '#2E5A87', '#2F6B3A', '#D9A21B', '#7A5230'];
+const navItems = d.nav.map(([id, label], i) => {
+const on = s.active === id;
+const c = accents[i % 5];
+return { num: String(i + 1).padStart(2, '0'), label, href: '#ch-' + id, numStyle: 'display:inline-block; min-width:26px; font-size:12px; color:' + (on ? '#FBF7EE' : c) + ';', style: 'display:flex; gap:8px; align-items:baseline; flex:0 0 auto; padding:8px 12px; border-radius:4px 0 0 4px; text-decoration:none; font-size:15px; line-height:1.25; white-space:normal; border-left:6px solid ' + c + '; ' + (on ? 'background:' + c + '; color:#FBF7EE; font-weight:600;' : 'background:#F6EFDF; color:#24211C;') };
+});
+const progStyle = 'height:100%; width:' + (s.prog * 100).toFixed(1) + '%; background:#B3263E;';
+
+const puzzleStats = d.puzzleStats.map(([big, text, ref]) => ({ big, text, ref }));
+const frameChips = ['choice', 'survival'].map((id) => ({ label: d.frames[id].label, pressed: s.frame === id ? 'true' : 'false', style: this.chip(s.frame === id, id === 'choice' ? '#2E5A87' : '#B3263E'), pick: () => set({ frame: id }) }));
+
+const tlOpts = [['all', 'All entries']].concat(Object.keys(d.tags).map((k) => [k, d.tags[k][0]]));
+const tlChips = tlOpts.map(([id, label]) => ({ label, pressed: s.tl === id ? 'true' : 'false', style: this.chip(s.tl === id, id === 'all' ? '#24211C' : d.tags[id][1]), pick: () => set({ tl: id }) }));
+const timeline = d.timeline.filter((e) => s.tl === 'all' || e[1] === s.tl).map((e) => { const t = d.tags[e[1]]; return { year: e[0], text: e[2], tagLabel: t[0] + ' · ' + e[3], style: 'background:#FFFFFF; border:1.5px solid #CDBFA4; border-left:6px solid ' + t[1] + '; border-radius:4px; padding:12px 16px;' }; });
+const glossary = d.glossary.map(([term, def], i) => { const open = !!s.gloss[i]; return { term, def, open, closed: !open, expanded: open ? 'true' : 'false', style: 'width:100%; min-height:96px; padding:14px 16px; border-radius:4px; text-align:left; border:1.5px solid #CDBFA4; border-top:6px solid ' + accents[i % 5] + '; background:' + (open ? '#FFF8E6' : '#FFFFFF') + ';', toggle: () => set({ gloss: Object.assign({}, s.gloss, { [i]: !open }) }) }; });
+
+const stopPins = d.stops.map((p) => { const on = s.stop === p.id; return { n: p.n, name: p.name, short: p.name.split(',')[0], pressed: on ? 'true' : 'false', pick: () => set({ stop: p.id }), style: 'position:absolute; left:' + p.x + '%; top:' + p.y + '%; transform:translate(-50%,-50%); width:' + (on ? 46 : 38) + 'px; height:' + (on ? 46 : 38) + 'px; border-radius:50%; border:3px solid #24211C; font-size:14px; background:' + (on ? p.color : '#FFFFFF') + '; color:' + (on ? '#FFFFFF' : '#24211C') + '; ' + (on ? 'box-shadow:0 0 0 5px rgba(179,38,62,0.25);' : ''), chipStyle: this.chip(on, p.color) }; });
+const sObj = d.stops.find((p) => p.id === s.stop);
+const stop = Object.assign({}, sObj, { tagStyle: 'display:inline-block; font-size:12px; text-transform:uppercase; padding:3px 10px; border-radius:3px; background:' + sObj.color + '; color:#FFFFFF;' });
+
+const maxCount = 300;
+const rungs = d.ladder.map((r) => { const on = s.rung === r.id; const w = Math.round(56 + 44 * (parseInt(r.count, 10) / maxCount)); return { name: r.name, count: r.count, pressed: on ? 'true' : 'false', pick: () => set({ rung: r.id }), style: 'display:flex; justify-content:space-between; align-items:center; gap:10px; width:' + w + '%; min-height:48px; padding:8px 12px; border-radius:4px; text-align:left; border:2px solid ' + r.color + '; ' + (on ? 'background:' + r.color + '; color:#FBF7EE; box-shadow:3px 3px 0 #24211C;' : 'background:#FFFFFF; color:#24211C;') }; });
+const rObj = d.ladder.find((r) => r.id === s.rung);
+const rung = Object.assign({}, rObj, { tagStyle: 'display:inline-block; font-size:12px; text-transform:uppercase; padding:3px 10px; border-radius:3px; background:' + rObj.color + '; color:#FFFFFF;' });
+
+const chainSteps = d.chain.map((c) => { const on = s.step === c.id; return { step: c.step, name: c.name, pressed: on ? 'true' : 'false', pick: () => set({ step: c.id }), style: 'width:100%; min-height:84px; padding:10px 12px; border-radius:4px; text-align:left; border:2px solid #2F6B3A; ' + (on ? 'background:#2F6B3A; color:#FBF7EE;' : 'background:#FFFFFF; color:#24211C;') }; });
+const chainStep = d.chain.find((c) => c.id === s.step);
+
+const violChips = d.violence.map((v) => ({ label: v.name, pressed: s.viol === v.id ? 'true' : 'false', style: this.chip(s.viol === v.id, '#B3263E'), pick: () => set({ viol: v.id }) }));
+const viol = d.violence.find((v) => v.id === s.viol);
+const healthTiles = d.health.map(([big, text, ref]) => ({ big, text, ref }));
+
+const chapterList = d.chapters.map((c) => { const on = s.chapter === c.id; return { n: c.n, title: c.title, pressed: on ? 'true' : 'false', pick: () => set({ chapter: c.id }), style: 'display:flex; gap:10px; align-items:baseline; width:100%; min-height:48px; padding:10px 12px; border-radius:4px; text-align:left; border:2px solid #7A5230; ' + (on ? 'background:#7A5230; color:#FBF7EE;' : 'background:#FFFFFF; color:#24211C;') }; });
+const chapter = d.chapters.find((c) => c.id === s.chapter);
+
+const groupChips = d.peopleGroups.map(([id, label]) => ({ label, pressed: s.pgroup === id ? 'true' : 'false', style: this.chip(s.pgroup === id, '#2E5A87'), pick: () => { const first = d.people.find((p) => id === 'all' || p.g === id); set({ pgroup: id, person: first ? first.id : s.person }); } }));
+const gcol = { triqui: '#B3263E', farm: '#D9A21B', clinic: '#2E5A87', valley: '#2F6B3A' };
+const peopleCards = d.people.filter((p) => s.pgroup === 'all' || p.g === s.pgroup).map((p) => ({ name: p.name, tag: p.tag, pressed: s.person === p.id ? 'true' : 'false', pick: () => set({ person: p.id }), style: this.tile(s.person === p.id, gcol[p.g]) }));
+const person = d.people.find((p) => p.id === s.person);
+
+const exCards = d.excerpts.map((e) => ({ title: e.title, pages: e.pages, pressed: s.exId === e.id ? 'true' : 'false', pick: () => set({ exId: e.id }), style: this.tile(s.exId === e.id, e.color) }));
+const eObj = d.excerpts.find((e) => e.id === s.exId);
+const allOpen = eObj.anns.every((a, i) => !!s.ann[eObj.id + i]);
+const ex = Object.assign({}, eObj, { tagStyle: 'display:inline-block; font-size:12px; text-transform:uppercase; padding:3px 10px; border-radius:3px; background:' + eObj.color + '; color:#FFFFFF;', anns: eObj.anns.map(([phrase, page, note, tag], i) => { const key = eObj.id + i; const open = !!s.ann[key]; return { n: i + 1, phrase, page, note, tag, open, expanded: open ? 'true' : 'false', label: open ? 'Hide note' : 'Unpack', toggle: () => set({ ann: Object.assign({}, s.ann, { [key]: !open }) }), numStyle: 'flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:13px; background:' + eObj.color + '; color:#FFFFFF;', boxStyle: 'background:#FFFDF6; border:1.5px dashed #CDBFA4; border-left:6px solid ' + eObj.color + '; border-radius:4px; padding:14px 16px;' }; }) });
+const exAll = () => { const o = Object.assign({}, s.ann); eObj.anns.forEach((a, i) => { o[eObj.id + i] = !allOpen; }); set({ ann: o }); };
+
+const explanations = d.explanations.map(([n, title, text, col]) => ({ n, title, text, style: 'background:#FFFFFF; border:1.5px solid #CDBFA4; border-top:8px solid ' + col + '; border-radius:4px; padding:14px 16px;' }));
+const caseChips = Object.keys(d.cases).map((id) => ({ label: d.cases[id].label, pressed: s.caseId === id ? 'true' : 'false', style: this.chip(s.caseId === id, '#B3263E'), pick: () => set({ caseId: id }) }));
+const modeChips = [['structure', 'How structure produces it'], ['natural', 'How it is made to look natural']].map(([id, label]) => ({ label, pressed: s.mode === id ? 'true' : 'false', style: this.chip(s.mode === id, '#24211C'), pick: () => set({ mode: id }) }));
+const readCase = d.cases[s.caseId];
+const struct = s.mode === 'structure';
+
+const conceptChips = d.concepts.map((c) => ({ label: c.name, pressed: s.concept === c.id ? 'true' : 'false', style: this.chip(s.concept === c.id, '#2E5A87'), pick: () => set({ concept: c.id, planOpen: false }) }));
+const cObj = d.concepts.find((c) => c.id === s.concept);
+const concept = Object.assign({}, cObj, { inFF: cObj.inPM.map(([t, ref]) => ({ t, ref })), practice: 'Analyse the ethnographic data presented in Fresh Fruit, Broken Bodies using the key concept of ' + cObj.name.toLowerCase() + '.' });
+
+const lensChips = d.lenses.map((l) => ({ label: l.name, pressed: s.lens === l.id ? 'true' : 'false', style: this.chip(s.lens === l.id, '#7A5230'), pick: () => set({ lens: l.id }) }));
+const lens = d.lenses.find((l) => l.id === s.lens);
+
+const methods = d.methods.map(([name, what, ev]) => ({ name, what, eval: ev }));
+const ethChips = d.ethics.map((e) => ({ label: e.name, pressed: s.eth === e.id ? 'true' : 'false', style: this.chip(s.eth === e.id, '#2F6B3A'), pick: () => set({ eth: e.id }) }));
+const eth = d.ethics.find((e) => e.id === s.eth);
+
+const iscChips = d.iscs.map((i) => ({ label: i.name, pressed: s.isc === i.id ? 'true' : 'false', style: this.chip(s.isc === i.id, '#D9A21B'), pick: () => set({ isc: i.id }) }));
+const isc = d.iscs.find((i) => i.id === s.isc);
+const aoiCards = d.aoiCards.map(([title, text, col]) => ({ title, text, style: 'border-top:6px solid ' + col + ';' }));
+const aoiQs = d.aoiQs;
+
+const linkCards = d.links.map((l) => ({ title: l.title, byline: l.author + ' (' + l.year + ')', best: l.best, pressed: s.link === l.id ? 'true' : 'false', pick: () => set({ link: l.id }), style: this.tile(s.link === l.id, l.color) }));
+const link = d.links.find((l) => l.id === s.link);
+const baqChips = d.baqs.map((b, i) => ({ label: 'BAQ ' + (i + 1) + ' · ' + b.q, pressed: s.baq === b.id ? 'true' : 'false', style: this.chip(s.baq === b.id, b.color), pick: () => set({ baq: b.id }) }));
+const bObj = d.baqs.find((b) => b.id === s.baq);
+const baq = Object.assign({}, bObj, { ev: bObj.ev.map(([t, ref]) => ({ t, ref })) });
+
+const readGroups = d.reading.map((r) => ({ name: r.name, headStyle: 'margin:0 0 12px; font-size:24px; padding-left:12px; border-left:8px solid ' + r.color + ';', items: r.items.map(([title, by, type, note, url]) => ({ title, by, type, note, url, typeStyle: 'align-self:flex-start; font-size:11px; text-transform:uppercase; padding:3px 8px; border-radius:3px; background:' + r.color + '; color:#FFFFFF;' })) }));
+
+return this.walk({
+navItems, progStyle, puzzleStats, frameChips, frameText: d.frames[s.frame].text,
+tlChips, timeline, glossary, stopPins, stop, rungs, rung, chainSteps, chainStep, violChips, viol, healthTiles,
+chapterList, chapter, groupChips, peopleCards, person, exCards, ex, exAll, exAllLabel: allOpen ? 'Hide all notes' : 'Show all notes',
+explanations, caseChips, modeChips, readCase, readHeading: struct ? 'How structure produces it' : 'How it is made to look natural', readText: struct ? readCase.structure : readCase.natural, readStyle: 'border-radius:4px; padding:16px 18px; font-size:18px; ' + (struct ? 'background:#24211C; color:#FBF7EE;' : 'background:#FFF1C9; color:#24211C;'),
+conceptChips, concept, planOpen: s.planOpen, planExpanded: s.planOpen ? 'true' : 'false', planLabel: s.planOpen ? 'Hide plan' : 'Show a plan', togglePlan: () => set({ planOpen: !s.planOpen }),
+lensChips, lens, modelOpen: s.modelOpen, modelExpanded: s.modelOpen ? 'true' : 'false', modelLabel: s.modelOpen ? 'Hide model paragraph' : 'Show a model paragraph', toggleModel: () => set({ modelOpen: !s.modelOpen }),
+methods, ethChips, eth, iscChips, isc, aoiCards, aoiQs, linkCards, link, baqChips, baq, readGroups
+});
+
+}
+}
+
+window.__mount(Component);
+</script>
+</body>
+</html>
